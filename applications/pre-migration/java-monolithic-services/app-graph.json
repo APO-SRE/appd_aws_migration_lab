@@ -1,0 +1,562 @@
+{
+
+    "FinancialServices": {
+        "tier_type" : "java",
+        "paths" : {
+
+
+
+            "/orders/api/processtrade": {
+                "actions": [
+                    
+                    {
+                        "name": "order-processing",
+                        "type": "ProcessingAction",
+                        "properties": {
+                            "minDuration": 300,
+                            "maxDuration": 600,
+                            "numCores": 2,
+                            "numThreadsPerCore": 3,
+                            "load": 0.5
+                        }
+                    },
+
+                    {
+                        "name": "mongo-orders",
+                        "type": "MongoAction",
+                        "properties": {
+                            "action": "Insert",
+                            "connectionString": "localhost:27017",
+                            "database": "orders",
+                            "collection": "orders"
+                        }
+                    }
+
+                ]
+            },
+
+
+
+
+
+            "/quotes/api/getquote": {
+                "actions": [
+                    
+                    {
+                        "name": "quote-processing",
+                        "type": "ProcessingAction",
+                        "properties": {
+                            "minDuration": 400,
+                            "maxDuration": 500,
+                            "numCores": 2,
+                            "numThreadsPerCore": 3,
+                            "load": 0.2
+                        }
+                    },
+
+                    {
+                        "name": "mongo-quotes",
+                        "type": "MongoAction",
+                        "properties": {
+                            "action": "Insert",
+                            "connectionString": "localhost:27017",
+                            "database": "stocks",
+                            "collection": "stocks"
+                        }
+                    }
+
+                ]
+            },
+
+
+
+
+
+
+            "/auth/api/login": {
+                "actions": [
+                    
+                    {
+                        "name": "session-processing",
+                        "type": "ProcessingAction",
+                        "properties": {
+                            "minDuration": 200,
+                            "maxDuration": 300,
+                            "numCores": 2,
+                            "numThreadsPerCore": 1,
+                            "load": 0.2
+                        }
+                    },
+                    {
+                        "name": "login-processing",
+                        "type": "ProcessingAction",
+                        "properties": {
+                            "minDuration": 300,
+                            "maxDuration": 400,
+                            "numCores": 2,
+                            "numThreadsPerCore": 3,
+                            "load": 0.2
+                        }
+                    }
+
+                ]
+            },
+
+
+
+
+
+            "/accounts/api/accounts-summary": {
+                "actions": [
+                    {
+                        "name": "session-processing",
+                        "type": "ProcessingAction",
+                        "properties": {
+                            "minDuration": 200,
+                            "maxDuration": 300,
+                            "numCores": 2,
+                            "numThreadsPerCore": 1,
+                            "load": 0.2
+                        }
+                    },
+                    {
+                        "name": "cash-accounts-summary",
+                        "type": "MethodInvocationAction",
+                        "properties": {
+                            "beanName": "repoControllerMediator",
+                            "methodName": "getCashAccountsSummary",
+                            "url": "http://balance-services:8080/balances/api/accounts-summary"
+                        }
+                    },
+                    {
+                        "name": "loan-accounts-summary",
+                        "type": "MethodInvocationAction",
+                        "properties": {
+                            "beanName": "repoControllerMediator",
+                            "methodName": "getLoanAccountsSummary",
+                            "url": "http://loan-services:8080/loans/api/accounts-summary"
+                        }
+                    }
+
+                ]
+            },
+
+
+
+
+
+
+            "/accounts/api/cashacctdetails": {
+                "actions": [
+                    {
+                        "name": "session-processing",
+                        "type": "ProcessingAction",
+                        "properties": {
+                            "minDuration": 200,
+                            "maxDuration": 300,
+                            "numCores": 2,
+                            "numThreadsPerCore": 1,
+                            "load": 0.2
+                        }
+                    },
+                    {
+                        "name": "cash-account-summary",
+                        "type": "MethodInvocationAction",
+                        "properties": {
+                            "beanName": "repoControllerMediator",
+                            "methodName": "getCashAccountSummary",
+                            "url": "http://balance-services:8080/balances/api/account-summary"
+                        }
+                    },
+                    {
+                        "name": "cash-account-details",
+                        "type": "MethodInvocationAction",
+                        "properties": {
+                            "beanName": "repoControllerMediator",
+                            "methodName": "getCashAccountDetails",
+                            "url": "http://balance-services:8080/balances/api/account-details"
+                        }
+                    }
+
+                ]
+            },
+
+
+
+
+
+            "/accounts/api/loanacctdetails": {
+                "actions": [
+                    {
+                        "name": "session-processing",
+                        "type": "ProcessingAction",
+                        "properties": {
+                            "minDuration": 200,
+                            "maxDuration": 300,
+                            "numCores": 2,
+                            "numThreadsPerCore": 1,
+                            "load": 0.2
+                        }
+                    },
+                    {
+                        "name": "loan-account-summary",
+                        "type": "MethodInvocationAction",
+                        "properties": {
+                            "beanName": "repoControllerMediator",
+                            "methodName": "getLoanAccountSummary",
+                            "url": "http://loan-services:8080/loans/api/account-summary"
+                        }
+                    },
+                    {
+                        "name": "loan-account-details",
+                        "type": "MethodInvocationAction",
+                        "properties": {
+                            "beanName": "repoControllerMediator",
+                            "methodName": "getLoanAccountDetails",
+                            "url": "http://loan-services:8080/loans/api/account-details"
+                        }
+                    }
+
+                ]
+            },            
+
+
+
+
+
+
+            "/accounts/api/policypayment": {
+
+                "actions": [
+                    {
+                        "name": "amex-api",
+                        "type": "HttpAction",
+                        "properties": {
+                            "requestMethod": "POST",
+                            "url": "https://amex-fso-payment-gw-sim.azurewebsites.net/api/payment?addressName=jrs-address"
+                        }
+                    },                    
+                    {
+                        "name": "policy-processing",
+                        "type": "ProcessingAction",
+                        "properties": {
+                            "minDuration": 300,
+                            "maxDuration": 500,
+                            "numCores": 2,
+                            "numThreadsPerCore": 3,
+                            "load": 0.2
+                        }
+                    },
+                    {
+                        "name": "mastercard-api",
+                        "type": "HttpAction",
+                        "properties": {
+                            "requestMethod": "POST",
+                            "url": "https://fso-payment-gw-sim.azurewebsites.net/api/payment?addressName=jrs-address"
+                        }
+                    },                    
+                    {
+                        "name": "mongo-policies",
+                        "type": "MongoAction",
+                        "properties": {
+                            "action": "Insert",
+                            "connectionString": "localhost:27017",
+                            "database": "policies",
+                            "collection": "policies"
+                        }
+                    }
+                ]
+
+            },
+
+
+
+
+
+
+            "/accounts/api/loanPayment": {
+                "actions": [
+                    {
+                        "name": "session-processing",
+                        "type": "ProcessingAction",
+                        "properties": {
+                            "minDuration": 200,
+                            "maxDuration": 300,
+                            "numCores": 2,
+                            "numThreadsPerCore": 1,
+                            "load": 0.2
+                        }
+                    },
+                    {
+                        "name": "loan-processing",
+                        "type": "ProcessingAction",
+                        "properties": {
+                            "minDuration": 800,
+                            "maxDuration": 1100,
+                            "numCores": 2,
+                            "numThreadsPerCore": 1,
+                            "load": 0.2
+                        }
+                    },
+                    {
+                        "name": "loan-payment",
+                        "type": "MethodInvocationAction",
+                        "properties": {
+                            "beanName": "repoControllerMediator",
+                            "methodName": "processLoanPayment",
+                            "url": "http://loan-services:8080/loans/api/loanPayment/"
+                        }
+                    }
+
+                ]
+            },
+
+
+
+
+
+
+            "/accounts/api/loanApplication": {
+                "actions": [
+                    {
+                        "name": "session-processing",
+                        "type": "ProcessingAction",
+                        "properties": {
+                            "minDuration": 200,
+                            "maxDuration": 300,
+                            "numCores": 2,
+                            "numThreadsPerCore": 1,
+                            "load": 0.2
+                        }
+                    },
+                    {
+                        "name": "loan-processing",
+                        "type": "ProcessingAction",
+                        "properties": {
+                            "minDuration": 200,
+                            "maxDuration": 400,
+                            "numCores": 2,
+                            "numThreadsPerCore": 1,
+                            "load": 0.2
+                        }
+                    },
+                    {
+                        "name": "loan-application",
+                        "type": "MethodInvocationAction",
+                        "properties": {
+                            "beanName": "repoControllerMediator",
+                            "methodName": "processLoanSaveApplication",
+                            "url": "http://loan-services:8080/loans/api/loanApplication/"
+                        }
+                    }
+
+                ]
+            },
+
+
+
+
+
+
+            "/accounts/api/loanVerifyDocumentation": {
+                "actions": [
+                    {
+                        "name": "session-processing",
+                        "type": "ProcessingAction",
+                        "properties": {
+                            "minDuration": 200,
+                            "maxDuration": 300,
+                            "numCores": 2,
+                            "numThreadsPerCore": 1,
+                            "load": 0.2
+                        }
+                    },
+                    {
+                        "name": "loan-processing",
+                        "type": "ProcessingAction",
+                        "properties": {
+                            "minDuration": 900,
+                            "maxDuration": 1200,
+                            "numCores": 2,
+                            "numThreadsPerCore": 1,
+                            "load": 0.1
+                        }
+                    },
+                    {
+                        "name": "loan-verify",
+                        "type": "MethodInvocationAction",
+                        "properties": {
+                            "beanName": "repoControllerMediator",
+                            "methodName": "processLoanVerifyDocumentation",
+                            "url": "http://loan-services:8080/loans/api/loanVerifyDocumentation/"
+                        }
+                    }
+
+                ]
+            },
+
+
+
+
+
+
+            "/accounts/api/loanCreditCheck": {
+                "actions": [
+                    {
+                        "name": "session-processing",
+                        "type": "ProcessingAction",
+                        "properties": {
+                            "minDuration": 200,
+                            "maxDuration": 300,
+                            "numCores": 2,
+                            "numThreadsPerCore": 1,
+                            "load": 0.2
+                        }
+                    },
+                    {
+                        "name": "loan-processing",
+                        "type": "ProcessingAction",
+                        "properties": {
+                            "minDuration": 200,
+                            "maxDuration": 500,
+                            "numCores": 2,
+                            "numThreadsPerCore": 1,
+                            "load": 0.2
+                        }
+                    },
+                    {
+                        "name": "loan-creditcheck",
+                        "type": "MethodInvocationAction",
+                        "properties": {
+                            "beanName": "repoControllerMediator",
+                            "methodName": "processLoanCreditCheck",
+                            "url": "http://loan-services:8080/loans/api/loanCreditCheck/"
+                        }
+                    }
+
+                ]
+            },
+
+
+
+
+
+
+            "/accounts/api/loanUnderwritingComplete": {
+                "actions": [
+                    {
+                        "name": "session-processing",
+                        "type": "ProcessingAction",
+                        "properties": {
+                            "minDuration": 200,
+                            "maxDuration": 300,
+                            "numCores": 2,
+                            "numThreadsPerCore": 1,
+                            "load": 0.2
+                        }
+                    },
+                    {
+                        "name": "loan-processing",
+                        "type": "ProcessingAction",
+                        "properties": {
+                            "minDuration": 300,
+                            "maxDuration": 500,
+                            "numCores": 2,
+                            "numThreadsPerCore": 1,
+                            "load": 0.3
+                        }
+                    },
+                    {
+                        "name": "loan-underwriting",
+                        "type": "MethodInvocationAction",
+                        "properties": {
+                            "beanName": "repoControllerMediator",
+                            "methodName": "processLoanUnderwriting",
+                            "url": "http://loan-services:8080/loans/api/loanUnderwritingComplete/"
+                        }
+                    }
+
+                ]
+            },
+
+
+
+
+
+
+            "/accounts/api/loanApproved": {
+                "actions": [
+                    {
+                        "name": "session-processing",
+                        "type": "ProcessingAction",
+                        "properties": {
+                            "minDuration": 200,
+                            "maxDuration": 300,
+                            "numCores": 2,
+                            "numThreadsPerCore": 1,
+                            "load": 0.2
+                        }
+                    },
+                    {
+                        "name": "loan-processing",
+                        "type": "ProcessingAction",
+                        "properties": {
+                            "minDuration": 200,
+                            "maxDuration": 400,
+                            "numCores": 2,
+                            "numThreadsPerCore": 1,
+                            "load": 0.2
+                        }
+                    },
+                    {
+                        "name": "loan-approved",
+                        "type": "MethodInvocationAction",
+                        "properties": {
+                            "beanName": "repoControllerMediator",
+                            "methodName": "processLoanApproval",
+                            "url": "http://loan-services:8080/loans/api/loanApproved/"
+                        }
+                    }
+
+                ]
+            },
+
+
+
+
+
+
+
+
+            "*": {
+                "actions": [
+                    {
+                        "name": "catch-all-processing",
+                        "type": "ProcessingAction",
+                        "properties": {
+                            "minDuration": 150,
+                            "maxDuration": 800,
+                            "numCores": 2,
+                            "numThreadsPerCore": 3,
+                            "load": 0.2
+                        }
+                    }
+                ]
+            }
+
+
+
+
+
+
+        }
+
+
+    }
+
+
+
+
+
+
+}
