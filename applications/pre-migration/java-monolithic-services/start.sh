@@ -1,5 +1,7 @@
 #!/bin/sh -eux
 
+set +x  # temporarily turn command display OFF.
+
 source ../.env/setenv.sh
 
 if [ -f nohup.out ]; then
