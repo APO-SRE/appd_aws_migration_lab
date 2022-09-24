@@ -201,10 +201,21 @@ templates:
         tagValue: "@[ADWRKSHP_LABUSER_KEY]"
 
 
+  - templateName: "pre-migrate-loadgen-conf"
+    sourceFile: "./applications/pre-migration/load-generation/application.env.template"
+    destinationFile: "./applications/pre-migration/load-generation/application.env"
+    tags:        
+      - tagKey: "${ADWRKSHP_EUM_APP_NAME}"
+        tagValue: "@[ADWRKSHP_EUM_APP_NAME_PRE]"
+        
+      - tagKey: "${ADWRKSHP_EUM_APP_KEY}"
+        tagValue: "@[ADWRKSHP_EUM_APP_KEY_PRE]"
+        
 
-  - templateName: "docker-app-conf"
-    sourceFile: "/opt/appdynamics/appd_lab_repo/applications/pre-modernization/application.env.template"
-    destinationFile: "/opt/appdynamics/workshopuser/pre-mod-docker/application.env"
+
+  - templateName: "pre-migrate-app-conf"
+    sourceFile: "./applications/pre-migration/.env/setenv.sh.template"
+    destinationFile: "./applications/pre-migration/.env/setenv.sh"
     tags:
       - tagKey: "${ADWRKSHP_CONTROLLER_HOST}"
         tagValue: "@[ADWRKSHP_CONTROLLER_HOST]"
@@ -314,6 +325,7 @@ templates:
       - tagKey: "${ADWRKSHP_LABUSER_KEY}"
         tagValue: "@[ADWRKSHP_LABUSER_KEY]"    
 
+
   - templateName: "workshop-user-details"
     sourceFile: "/opt/appdynamics/appd_lab_repo/scripts/workshop-user-details.txt.template"
     destinationFile: "/home/ec2-user/environment/workshop-user-details.txt"
@@ -379,13 +391,13 @@ controllerInitTasks:
 controllerTasks:
 
   - taskType: "CONTROLLER_TASK_CREATE_APM_APP"
-    taskName: "create-apm-app-premod"
+    taskName: "create-apm-app-pre"
     inputTags:
       - tagKey: "@[ADWRKSHP_APM_APP_NAME_PRE]"
         tagValue: "@[ADWRKSHP_LABUSER_KEY]-AD-Fin-PreMod"
         
-    templateTargets:    
-      - templateName: "docker-app-conf"
+    templateTargets:        
+      - templateName: "pre-migrate-app-conf"
         targetTags:
           - tagKey: "${ADWRKSHP_APM_APP_NAME}"
             tagValue: "@[ADWRKSHP_APM_APP_NAME_PRE]"
@@ -397,7 +409,7 @@ controllerTasks:
 
 
   - taskType: "CONTROLLER_TASK_CREATE_BRUM_APP"
-    taskName: "create-brum-app-premod"
+    taskName: "create-brum-app-pre"
     inputTags:
       - tagKey: "@[ADWRKSHP_EUM_APP_NAME_PRE]"
         tagValue: "@[ADWRKSHP_LABUSER_KEY]-AD-Fin-PreMod-Web"
@@ -413,7 +425,14 @@ controllerTasks:
         tagValue: "2600"
   
     templateTargets:
-      - templateName: "docker-app-conf"
+      - templateName: "pre-migrate-loadgen-conf"
+        targetTags:
+          - tagKey: "${ADWRKSHP_EUM_APP_KEY}"
+            tagValue: "@[ADWRKSHP_EUM_APP_KEY_PRE]"  
+          - tagKey: "${ADWRKSHP_EUM_APP_NAME}"
+            tagValue: "@[ADWRKSHP_EUM_APP_NAME_PRE]"
+
+      - templateName: "pre-migrate-app-conf"
         targetTags:
           - tagKey: "${ADWRKSHP_EUM_APP_KEY}"
             tagValue: "@[ADWRKSHP_EUM_APP_KEY_PRE]"  
@@ -429,7 +448,7 @@ controllerTasks:
  
   
   - taskType: "CONTROLLER_TASK_CREATE_APM_APP"
-    taskName: "create-apm-app-postmod"
+    taskName: "create-apm-app-post"
     inputTags:
       - tagKey: "@[ADWRKSHP_APM_APP_NAME_POST]"
         tagValue: "@[ADWRKSHP_LABUSER_KEY]-AD-Fin-PostMod"
@@ -457,7 +476,7 @@ controllerTasks:
 
 
   - taskType: "CONTROLLER_TASK_CREATE_BRUM_APP"
-    taskName: "create-brum-app-postmod"
+    taskName: "create-brum-app-post"
     inputTags:
       - tagKey: "@[ADWRKSHP_EUM_APP_NAME_POST]"
         tagValue: "@[ADWRKSHP_LABUSER_KEY]-AD-Fin-PostMod-Web"  
@@ -569,7 +588,7 @@ controllerTasks:
           - tagKey: "${ADWRKSHP_RANDOM_UUID}"
             tagValue: "@[ADWRKSHP_RANDOM_UUID]"    
 
-      - templateName: "docker-app-conf"
+      - templateName: "pre-migrate-app-conf"
         targetTags:
           - tagKey: "${ADWRKSHP_CONTROLLER_HOST}"
             tagValue: "@[ADWRKSHP_CONTROLLER_HOST]"    

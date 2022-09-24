@@ -44,8 +44,9 @@ if [ ! -d ./scripts/state ]; then
   mkdir ./scripts/state
 fi
 
-chmod +x ./scripts/*.sh
-sed -i -e 's/\r$//' ./scripts/*.sh
+##### Make all shell scripts executable
+find ./ -type f -iname "*.sh" -exec chmod +x {} \;
+#sed -i -e 's/\r$//' ./scripts/*.sh
 
 
 # check to see if user_id file exists and if so read in the user_id
@@ -147,3 +148,6 @@ java -DworkshopUtilsConf=./scripts/workshop-setup.yaml -DworkshopLabUserPrefix=$
 
 fi
 # !!!!!!! END BIG IF BLOCK !!!!!!!
+
+##### Make all shell scripts executable
+find ./ -type f -iname "*.sh" -exec chmod +x {} \;

@@ -1,6 +1,6 @@
-#!/bin/sh -eux
+#!/bin/bash
 
-set +x  # temporarily turn command display OFF.
+#set +x  # temporarily turn command display OFF.
 
 source ../.env/setenv.sh
 
