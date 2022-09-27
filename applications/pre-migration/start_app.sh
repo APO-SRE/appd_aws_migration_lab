@@ -2,6 +2,8 @@
 
 #set +x  # temporarily turn command display OFF.
 
+find ./ -type f -iname "*.sh" -exec chmod +x {} \;
+
 cd java-monolithic-services
 ./start.sh
 

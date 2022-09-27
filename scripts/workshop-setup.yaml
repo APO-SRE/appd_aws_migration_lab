@@ -31,7 +31,11 @@ taskExecutionOrder:
     taskName: "create-pre-migrate-srvc-sh"
   - taskType: "SHELL_TASK"
     taskName: "get-ips-for-db-sg"
-    
+  - taskType: "SHELL_TASK"
+    taskName: "update-deploy-agents-sh"
+  - taskType: "SHELL_TASK"
+    taskName: "update-undeploy-agents-sh"
+
   - taskType: "CLOUD_TASKS"
     taskName: ""
   - taskType: "CONTROLLER_TASKS"
@@ -122,7 +126,7 @@ shellTasks:
       - tagKey: "@[ADWRKSHP_DB_AGENT_ZIP_URL]"
         tagValue: "https://download-files.appdynamics.com/download-file/db-agent/22.3.0.2742/db-agent-22.3.0.2742.zip"
       - tagKey: "@[ADWRKSHP_DB_AGENT_NAME]"
-        tagValue: "@[ADWRKSHP_LABUSER_KEY]-DBAgent"
+        tagValue: "adfin-migrate-@[ADWRKSHP_LABUSER_KEY]-DBAgent"
       - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_BEGIN_MSG]"
         tagValue: " - Start deployment of database agent"
       - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_END_MSG]"
@@ -164,6 +168,33 @@ shellTasks:
         tagValue: " - Finished service entry creation for server monitoring agent"
       - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_INHERIT_IO]"
         tagValue: "false"
+
+  - taskType: "SHELL_TASK_UPDATE_EXTERNAL_FILE"
+    taskName: "update-deploy-agents-sh"
+    inputTags:
+      - tagKey: "@[ADWRKSHP_UPDATE_EXTERNAL_FILE_SOURCEFILE]"
+        tagValue: "./scripts/deploy_appd_agents_to_kubernetes.sh.template"
+      - tagKey: "@[ADWRKSHP_UPDATE_EXTERNAL_FILE_DESTFILE]"
+        tagValue: "./scripts/deploy_appd_agents_to_kubernetes.sh"
+      - tagKey: "@[ADWRKSHP_HELM_CLUSTER_AGENT_DEPLOYMENT]"
+        tagValue: "true"
+      - tagKey: "@[ADWRKSHP_CLUSTER_AGENT_NAME_01]"
+        tagValue: "adfin-post-migrate-@[ADWRKSHP_LABUSER_KEY]-eks"
+ 
+
+  - taskType: "SHELL_TASK_UPDATE_EXTERNAL_FILE"
+    taskName: "update-undeploy-agents-sh"
+    inputTags:
+      - tagKey: "@[ADWRKSHP_UPDATE_EXTERNAL_FILE_SOURCEFILE]"
+        tagValue: "./scripts/undeploy_appd_agents_from_kubernetes.sh.template"
+      - tagKey: "@[ADWRKSHP_UPDATE_EXTERNAL_FILE_DESTFILE]"
+        tagValue: "./scripts/undeploy_appd_agents_from_kubernetes.sh"
+      - tagKey: "@[ADWRKSHP_HELM_CLUSTER_AGENT_DEPLOYMENT]"
+        tagValue: "true"
+      - tagKey: "@[ADWRKSHP_CLUSTER_AGENT_NAME_01]"
+        tagValue: "adfin-post-migrate-@[ADWRKSHP_LABUSER_KEY]-eks"
+        
+
 
   - taskType: "SHELL_TASK_EXECUTE_SHELL_SCRIPT"
     taskName: "start-pre-migrate-app"
@@ -245,17 +276,6 @@ shellTasks:
 
       
 templates:
-  - templateName: "docker-compose-conf"
-    sourceFile: "/opt/appdynamics/appd_lab_repo/applications/pre-modernization/docker-compose.yaml.template"
-    destinationFile: "/opt/appdynamics/workshopuser/pre-mod-docker/docker-compose.yaml"
-    tags:
-      - tagKey: "${ADWRKSHP_RANDOM_UUID}"
-        tagValue: "@[ADWRKSHP_RANDOM_UUID]"
-
-      - tagKey: "${ADWRKSHP_LABUSER_KEY}"
-        tagValue: "@[ADWRKSHP_LABUSER_KEY]"
-
-
   - templateName: "pre-migrate-loadgen-conf"
     sourceFile: "./applications/pre-migration/load-generation/application.env.template"
     destinationFile: "./applications/pre-migration/load-generation/application.env"
@@ -291,7 +311,7 @@ templates:
         tagValue: "@[ADWRKSHP_EUM_APP_KEY_PRE]"
         
       - tagKey: "${ADWRKSHP_DB_AGENT_NAME}"
-        tagValue: "@[ADWRKSHP_LABUSER_KEY]-DBAgent"
+        tagValue: "adfin-migrate-@[ADWRKSHP_LABUSER_KEY]-DBAgent"
         
       - tagKey: "${ADWRKSHP_LABUSER_KEY}"
         tagValue: "@[ADWRKSHP_LABUSER_KEY]"
@@ -299,8 +319,8 @@ templates:
  
        
   - templateName: "kube-cluster-conf"
-    sourceFile: "/opt/appdynamics/appd_lab_repo/applications/post-modernization/aws-cluster.yaml.template"
-    destinationFile: "/opt/appdynamics/workshopuser/post-mod-kube-cluster/cluster.yaml"
+    sourceFile: "./applications/post-migration/cluster.yaml.template"
+    destinationFile: "./applications/post-migration/cluster.yaml"
     tags:
       - tagKey: "${ADWRKSHP_CLOUD_REGION}"
         tagValue: "@[ADWRKSHP_CLOUD_REGION]"
@@ -357,7 +377,7 @@ templates:
         tagValue: "@[ADWRKSHP_EUM_APP_KEY_POST]"
         
       - tagKey: "${ADWRKSHP_DB_AGENT_NAME}"
-        tagValue: "@[ADWRKSHP_LABUSER_KEY]-DBAgent"
+        tagValue: "adfin-migrate-@[ADWRKSHP_LABUSER_KEY]-DBAgent"
         
       - tagKey: "${ADWRKSHP_DB1_URL_PART}"
         tagValue: "@[ADWRKSHP_CLOUD_DB_INST_ENDPOINT]"
@@ -417,7 +437,7 @@ controllerInitTasks:
     taskName: "create-license-rule"
     inputTags:
       - tagKey: "@[ADWRKSHP_LICENSE_RULE_NAME]"
-        tagValue: "@[ADWRKSHP_LABUSER_KEY]-LicenseRule"
+        tagValue: "adfin-migrate-@[ADWRKSHP_LABUSER_KEY]-LicenseRule"
       - tagKey: "@[ADWRKSHP_IBL_LICENSE_RULE_ACCT_ID]"
         tagValue: "23458"
         #tagValue: "817"
@@ -449,7 +469,7 @@ controllerTasks:
     taskName: "create-apm-app-pre"
     inputTags:
       - tagKey: "@[ADWRKSHP_APM_APP_NAME_PRE]"
-        tagValue: "@[ADWRKSHP_LABUSER_KEY]-AD-Fin-PreMod"
+        tagValue: "adfin-pre-migrate-@[ADWRKSHP_LABUSER_KEY]"
         
     templateTargets:        
       - templateName: "pre-migrate-app-conf"
@@ -467,7 +487,7 @@ controllerTasks:
     taskName: "create-brum-app-pre"
     inputTags:
       - tagKey: "@[ADWRKSHP_EUM_APP_NAME_PRE]"
-        tagValue: "@[ADWRKSHP_LABUSER_KEY]-AD-Fin-PreMod-Web"
+        tagValue: "adfin-pre-migrate-@[ADWRKSHP_LABUSER_KEY]-web"
       - tagKey: "@[ADWRKSHP_EUM_APP_CONF_UPDATE]"
         tagValue: "true"
       - tagKey: "@[ADWRKSHP_EUM_APP_CONF_SLOWT_TYPE]"
@@ -506,7 +526,7 @@ controllerTasks:
     taskName: "create-apm-app-post"
     inputTags:
       - tagKey: "@[ADWRKSHP_APM_APP_NAME_POST]"
-        tagValue: "@[ADWRKSHP_LABUSER_KEY]-AD-Fin-PostMod"
+        tagValue: "adfin-post-migrate-@[ADWRKSHP_LABUSER_KEY]"
       - tagKey: "@[ADWRKSHP_APM_APP_TYPE]"
         tagValue: "@[ADWRKSHP_APM_APP_TYPE_K8S]"
   
@@ -534,7 +554,7 @@ controllerTasks:
     taskName: "create-brum-app-post"
     inputTags:
       - tagKey: "@[ADWRKSHP_EUM_APP_NAME_POST]"
-        tagValue: "@[ADWRKSHP_LABUSER_KEY]-AD-Fin-PostMod-Web"  
+        tagValue: "adfin-post-migrate-@[ADWRKSHP_LABUSER_KEY]-web"  
       - tagKey: "@[ADWRKSHP_EUM_APP_CONF_UPDATE]"
         tagValue: "true"
       - tagKey: "@[ADWRKSHP_EUM_APP_CONF_SLOWT_TYPE]"
@@ -568,11 +588,11 @@ controllerTasks:
     taskName: "adfin-db-collector-post"
     inputTags:
       - tagKey: "@[ADWRKSHP_CLOUD_DB_INST_NAME]"
-        tagValue: "@[ADWRKSHP_LABUSER_KEY]-AD-Fin-PostMod"    
+        tagValue: "adfin-post-migrate-@[ADWRKSHP_LABUSER_KEY]"    
       - tagKey: "@[ADWRKSHP_CLOUD_DB_INST_TYPE]"
         tagValue: "MYSQL"    
       - tagKey: "@[ADWRKSHP_DB_AGENT_NAME]"
-        tagValue: "@[ADWRKSHP_LABUSER_KEY]-DBAgent"
+        tagValue: "adfin-migrate-@[ADWRKSHP_LABUSER_KEY]-DBAgent"
       - tagKey: "@[ADWRKSHP_CLOUD_DB_INST_PORT]"
         tagValue: "@[ADWRKSHP_CLOUD_DB_INST_PORT]"
       - tagKey: "@[ADWRKSHP_CLOUD_DB_INST_USER]"
@@ -593,11 +613,11 @@ controllerTasks:
     taskName: "adfin-db-collector-pre"
     inputTags:
       - tagKey: "@[ADWRKSHP_CLOUD_DB_INST_NAME]"
-        tagValue: "@[ADWRKSHP_LABUSER_KEY]-AD-Fin-PreMod"    
+        tagValue: "adfin-pre-migrate-@[ADWRKSHP_LABUSER_KEY]"    
       - tagKey: "@[ADWRKSHP_CLOUD_DB_INST_TYPE]"
         tagValue: "MYSQL"    
       - tagKey: "@[ADWRKSHP_DB_AGENT_NAME]"
-        tagValue: "@[ADWRKSHP_LABUSER_KEY]-DBAgent"
+        tagValue: "adfin-migrate-@[ADWRKSHP_LABUSER_KEY]-DBAgent"
       - tagKey: "@[ADWRKSHP_CLOUD_DB_INST_PORT]"
         tagValue: "3306"
       - tagKey: "@[ADWRKSHP_CLOUD_DB_INST_USER]"
@@ -638,11 +658,6 @@ controllerTasks:
 
 
     templateTargets:   
-      - templateName: "docker-compose-conf"
-        targetTags:
-          - tagKey: "${ADWRKSHP_RANDOM_UUID}"
-            tagValue: "@[ADWRKSHP_RANDOM_UUID]"    
-
       - templateName: "pre-migrate-app-conf"
         targetTags:
           - tagKey: "${ADWRKSHP_CONTROLLER_HOST}"
@@ -723,7 +738,7 @@ cloudTasks:
     taskName: "create-db-aws-rds-mysql"
     inputTags:
       - tagKey: "@[ADWRKSHP_CLOUD_DB_INST_NAME]"
-        tagValue: "@[ADWRKSHP_LABUSER_KEY]-adfin-mysql-post"    
+        tagValue: "adfin-post-migrate-@[ADWRKSHP_LABUSER_KEY]-mysql"    
       - tagKey: "@[ADWRKSHP_CLOUD_DB_INST_SIZE]"
         tagValue: "db.t2.small"    
       - tagKey: "@[ADWRKSHP_CLOUD_DB_INST_TYPE]"
@@ -736,8 +751,16 @@ cloudTasks:
         tagValue: "Welcome1!"    
       - tagKey: "@[ADWRKSHP_CLOUD_DB_INST_ENDPOINT]"
         tagValue: "@[ADWRKSHP_CLOUD_DB_INST_ENDPOINT]"    
-      - tagKey: "@[ADWRKSHP_CLOUD_SECURITY_GROUP_ID]"
-        tagValue: "@[ADWRKSHP_LABUSER_KEY]-admod-workshop-sg"    
+      - tagKey: "@[ADWRKSHP_CLOUD_SECURITY_GROUP_NAME]"
+        tagValue: "adfin-post-migrate-@[ADWRKSHP_LABUSER_KEY]-sg"
+      - tagKey: "@[ADWRKSHP_CLOUD_SEC_GROUP_CIDR_1]"
+        tagValue: "localprivip.txt"
+      - tagKey: "@[ADWRKSHP_CLOUD_SEC_GROUP_CIDR_2]"
+        tagValue: "localpubip.txt"
+      - tagKey: "@[ADWRKSHP_CLOUD_SEC_GROUP_CIDR_3]"
+        tagValue: "clusterprivips.txt"
+      - tagKey: "@[ADWRKSHP_CLOUD_SEC_GROUP_CIDR_4]"
+        tagValue: "clusterpubips.txt"
 
     taskTargets:    
       - taskType: "CONTROLLER_TASK_CREATE_DB_COLLECTOR"
@@ -757,7 +780,7 @@ cloudTasks:
     taskName: "create-storage-aws-s3-bucket-cash"
     inputTags:
       - tagKey: "@[ADWRKSHP_CLOUD_STORG_INST_NAME_1]"
-        tagValue: "adfin1-@[ADWRKSHP_LABUSER_KEY]-cashaccts"    
+        tagValue: "adfin-pm1-@[ADWRKSHP_LABUSER_KEY]-cashaccts"    
     templateTargets:    
       - templateName: "kube-app-conf"
         targetTags:
@@ -769,7 +792,7 @@ cloudTasks:
     taskName: "create-storage-aws-s3-bucket-bizloans"
     inputTags:
       - tagKey: "@[ADWRKSHP_CLOUD_STORG_INST_NAME_2]"
-        tagValue: "adfin2-@[ADWRKSHP_LABUSER_KEY]-bizloans"    
+        tagValue: "adfin-pm2-@[ADWRKSHP_LABUSER_KEY]-bizloans"    
     templateTargets:    
       - templateName: "kube-app-conf"
         targetTags:
@@ -781,7 +804,7 @@ cloudTasks:
     taskName: "create-storage-aws-s3-bucket-perloans"
     inputTags:
       - tagKey: "@[ADWRKSHP_CLOUD_STORG_INST_NAME_3]"
-        tagValue: "adfin3-@[ADWRKSHP_LABUSER_KEY]-perloans"
+        tagValue: "adfin-pm3-@[ADWRKSHP_LABUSER_KEY]-perloans"
         
     templateTargets:    
       - templateName: "kube-app-conf"
