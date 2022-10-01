@@ -1,8 +1,20 @@
 #!/bin/bash
 
-cd ..
+./get_ips_for_rds_security_group.sh
 
-cd applications/post-migration/application/.env
+##### Update RDS security group with EKS IPs
+
+
+
+
+
+##### Deploy application to EKS
+
+cd ..
+cd applications
+cd post-migration
+cd application
+cd .env
 
 kubectl create -f ./config-map.yaml
 
