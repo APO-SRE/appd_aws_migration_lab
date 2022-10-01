@@ -47,6 +47,7 @@ taskExecutionOrder:
   - taskType: "SHELL_TASK"
     taskName: "create-simagent-srvc-sh"
 
+
 #  - taskType: "SHELL_TASK"
 #    taskName: "create-kube-cluster"    
 #  - taskType: "SHELL_TASK"
@@ -195,7 +196,6 @@ shellTasks:
         tagValue: "adfin-post-migrate-@[ADWRKSHP_LABUSER_KEY]-eks"
         
 
-
   - taskType: "SHELL_TASK_EXECUTE_SHELL_SCRIPT"
     taskName: "start-pre-migrate-app"
     inputTags:
@@ -213,7 +213,7 @@ shellTasks:
     taskName: "create-kube-cluster"
     inputTags:
       - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_FILEPATH]"
-        tagValue: "/opt/appdynamics/workshopuser/deployEksCluster.sh"
+        tagValue: "./scripts/deployEksCluster.sh"
       - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_BEGIN_MSG]"
         tagValue: " - Starting Creation of EKS Cluster"
       - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_END_MSG]"
@@ -226,7 +226,7 @@ shellTasks:
     taskName: "deploy-kube-application"
     inputTags:
       - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_FILEPATH]"
-        tagValue: "/opt/appdynamics/workshopuser/deployEksApplication.sh"
+        tagValue: "./scripts/deploy_eks_application.sh"
       - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_BEGIN_MSG]"
         tagValue: " - Starting Deployment of Application to EKS Cluster"
       - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_END_MSG]"
@@ -236,36 +236,10 @@ shellTasks:
 
 
   - taskType: "SHELL_TASK_EXECUTE_SHELL_SCRIPT"
-    taskName: "deploy-kube-machine-agent"
-    inputTags:
-      - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_FILEPATH]"
-        tagValue: "/opt/appdynamics/workshopuser/deployMachineAgent.sh"
-      - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_BEGIN_MSG]"
-        tagValue: " - Starting Deployment of Machine Agent to EKS Cluster"
-      - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_END_MSG]"
-        tagValue: " - Finished Deployment of Machine Agent to EKS Cluster"
-      - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_INHERIT_IO]"
-        tagValue: "false"
-
-  - taskType: "SHELL_TASK_EXECUTE_SHELL_SCRIPT"
-    taskName: "deploy-cluster-agent"
-    inputTags:
-      - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_FILEPATH]"
-        tagValue: "/opt/appdynamics/workshopuser/deployClusterAgent.sh"
-      - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_ARGUMENTS]"
-        tagValue: "@[ADWRKSHP_ACCT_ACCESS_KEY]"
-      - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_BEGIN_MSG]"
-        tagValue: " - Starting Deployment of Cluster Agent"
-      - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_END_MSG]"
-        tagValue: " - Finished Deployment of Cluster Agent"
-      - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_INHERIT_IO]"
-        tagValue: "false"
-
-  - taskType: "SHELL_TASK_EXECUTE_SHELL_SCRIPT"
     taskName: "expose-kube-website"
     inputTags:
       - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_FILEPATH]"
-        tagValue: "/opt/appdynamics/workshopuser/exposeEksWebsite.sh"
+        tagValue: "./scripts/expose_eks_web_application.sh"
       - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_BEGIN_MSG]"
         tagValue: " - Starting Exposure of Website within EKS Cluster"
       - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_END_MSG]"
@@ -328,32 +302,9 @@ templates:
         tagValue: "@[ADWRKSHP_LABUSER_KEY]"
 
 
-
-  - templateName: "kube-cluster-agent-conf"
-    sourceFile: "/opt/appdynamics/appd_lab_repo/applications/post-modernization/cluster-agent.yaml.template"
-    destinationFile: "/opt/appdynamics/workshopuser/post-mod-kube-ca/cluster-agent.yaml"
-    tags:
-      - tagKey: "${ADWRKSHP_APM_APP_NAME}"
-        tagValue: "@[ADWRKSHP_APM_APP_NAME_POST]"
-      - tagKey: "${ADWRKSHP_CONTROLLER_URL_FULL}"
-        tagValue: "@[ADWRKSHP_CONTROLLER_URL_FULL]"
-      - tagKey: "${ADWRKSHP_CONTROLLER_ACCT_NAME}"
-        tagValue: "@[ADWRKSHP_CONTROLLER_ACCT_NAME]"
-
-
-
-  - templateName: "kube-cluster-agent-script"
-    sourceFile: "/opt/appdynamics/appd_lab_repo/scripts/deployClusterAgent.sh"
-    destinationFile: "/opt/appdynamics/workshopuser/deployClusterAgent.sh"
-    tags:
-      - tagKey: "${ADWRKSHP_ACCT_ACCESS_KEY}"
-        tagValue: "@[ADWRKSHP_ACCT_ACCESS_KEY]"
-
-
-
   - templateName: "kube-app-conf"
-    sourceFile: "/opt/appdynamics/appd_lab_repo/applications/post-modernization/config-map.yaml.template"
-    destinationFile: "/opt/appdynamics/workshopuser/post-mod-kube-app/config-map.yaml"
+    sourceFile: "./applications/post-migration/config-map.yaml.template"
+    destinationFile: "./applications/post-migration/application/.env/config-map.yaml"
     tags:
       - tagKey: "${ADWRKSHP_RANDOM_UUID}"
         tagValue: "@[ADWRKSHP_RANDOM_UUID]"
@@ -402,8 +353,8 @@ templates:
 
 
   - templateName: "workshop-user-details"
-    sourceFile: "/opt/appdynamics/appd_lab_repo/scripts/workshop-user-details.txt.template"
-    destinationFile: "/home/ec2-user/environment/workshop-user-details.txt"
+    sourceFile: "./scripts/workshop-user-details.txt.template"
+    destinationFile: "./workshop-user-details.txt"
     tags:
       - tagKey: "${ADWRKSHP_CONTROLLER_HOST}"
         tagValue: "@[ADWRKSHP_CONTROLLER_HOST]"
@@ -433,18 +384,18 @@ templates:
 controllerInitTasks:
 # !!! The license rule creation task should be the very first controller init task
 # NEW IBL L##ICENSE RULE TAG KEYS
-  - taskType: "CONTROLLER_TASK_CREATE_IBL_LICENSE_RULE"
-    taskName: "create-license-rule"
-    inputTags:
-      - tagKey: "@[ADWRKSHP_LICENSE_RULE_NAME]"
-        tagValue: "adfin-migrate-@[ADWRKSHP_LABUSER_KEY]-LicenseRule"
-      - tagKey: "@[ADWRKSHP_IBL_LICENSE_RULE_ACCT_ID]"
-        tagValue: "23458"
-        #tagValue: "817"
-      - tagKey: "@[ADWRKSHP_IBL_LICENSE_RULE_NBR_ENTR]"
-        tagValue: "0"
-      - tagKey: "@[ADWRKSHP_IBL_LICENSE_RULE_NBR_PREM]"
-        tagValue: "50"
+#  - taskType: "CONTROLLER_TASK_CREATE_IBL_LICENSE_RULE"
+#    taskName: "create-license-rule"
+#    inputTags:
+#      - tagKey: "@[ADWRKSHP_LICENSE_RULE_NAME]"
+#        tagValue: "adfin-migrate-@[ADWRKSHP_LABUSER_KEY]-LicenseRule"
+#      - tagKey: "@[ADWRKSHP_IBL_LICENSE_RULE_ACCT_ID]"
+#        tagValue: "23458"
+#        #tagValue: "817"
+#      - tagKey: "@[ADWRKSHP_IBL_LICENSE_RULE_NBR_ENTR]"
+#        tagValue: "0"
+#      - tagKey: "@[ADWRKSHP_IBL_LICENSE_RULE_NBR_PREM]"
+#        tagValue: "50"
         
 
 # !!! The license rule creation task should be the very first controller init task
@@ -533,12 +484,6 @@ controllerTasks:
     templateTargets:
     
       - templateName: "kube-app-conf"
-        targetTags:
-          - tagKey: "${ADWRKSHP_APM_APP_NAME}"
-            tagValue: "@[ADWRKSHP_APM_APP_NAME_POST]"
-
-
-      - templateName: "kube-cluster-agent-conf"
         targetTags:
           - tagKey: "${ADWRKSHP_APM_APP_NAME}"
             tagValue: "@[ADWRKSHP_APM_APP_NAME_POST]"
@@ -654,7 +599,7 @@ controllerTasks:
 
     inputTags:
       - tagKey: "@[ADWRKSHP_DEFAULT_RBAC_ROLE_IDS]"
-        tagValue: "286308,286387,286459"    
+        tagValue: "286459,286305,286308,286387"    
 
 
     templateTargets:   
@@ -689,21 +634,6 @@ controllerTasks:
 
           - tagKey: "${ADWRKSHP_RANDOM_UUID}"
             tagValue: "@[ADWRKSHP_RANDOM_UUID]"    
-
-
-      - templateName: "kube-cluster-agent-conf"
-        targetTags:
-          - tagKey: "${ADWRKSHP_CONTROLLER_URL_FULL}"
-            tagValue: "@[ADWRKSHP_CONTROLLER_URL_FULL]"
-            
-          - tagKey: "${ADWRKSHP_CONTROLLER_ACCT_NAME}"
-            tagValue: "@[ADWRKSHP_CONTROLLER_ACCT_NAME]"    
-
-
-      - templateName: "kube-cluster-agent-script"
-        targetTags:
-          - tagKey: "${ADWRKSHP_ACCT_ACCESS_KEY}"
-            tagValue: "@[ADWRKSHP_ACCT_ACCESS_KEY]"    
 
 
       - templateName: "workshop-user-details"

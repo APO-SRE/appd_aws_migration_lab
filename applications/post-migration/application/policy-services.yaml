@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: policy-services
+  labels:
+    framework: java
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ad-financial
+      run: policy-services
+  template:
+    metadata:
+      labels:
+        app: ad-financial
+        run: policy-services
+    spec:
+      containers:
+        - name: policy-services
+          image: public.ecr.aws/w3n5a5m8/adfinmigrt_java_services_post:latest
+          envFrom:
+            - configMapRef:
+                name: appd-app-config
+          env:
+            - name: HOST_NAME
+              value: "policy-services"
+            - name: GRAPH_FILE
+              value: /app-graph.json
+            - name: APPDYNAMICS_AGENT_TIER_NAME
+              value: PolicyServices              
+            - name: ADWRKSHP_TIER_SRVC_NAME
+              value: PolicyServices
+            - name: APPDYNAMICS_JAVA_AGENT_REUSE_NODE_NAME
+              value: "true"
+            - name: APPDYNAMICS_JAVA_AGENT_REUSE_NODE_NAME_PREFIX
+              value: PolicyServices_Node
+            - name: ENABLE_IRP
+              value: "true"
+
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+      restartPolicy: Always
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: policy-services
+  labels:
+    app: ad-financial
+    run: policy-services
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+  selector:
+    run: policy-services
+---

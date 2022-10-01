@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: session-tracking
+  labels:
+    framework: java
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ad-financial
+      run: session-tracking
+  template:
+    metadata:
+      labels:
+        app: ad-financial
+        run: session-tracking
+    spec:
+      containers:
+        - name: session-tracking
+          image: public.ecr.aws/w3n5a5m8/adfinmod_java_services_post:latest
+          envFrom:
+            - configMapRef:
+                name: appd-app-config
+          env:
+            - name: HOST_NAME
+              value: "session-tracking"
+            - name: GRAPH_FILE
+              value: /app-graph.json
+            - name: APPDYNAMICS_AGENT_TIER_NAME
+              value: SessionTracking              
+            - name: ADWRKSHP_TIER_SRVC_NAME
+              value: SessionTracking
+            - name: APPDYNAMICS_JAVA_AGENT_REUSE_NODE_NAME
+              value: "true"
+            - name: APPDYNAMICS_JAVA_AGENT_REUSE_NODE_NAME_PREFIX
+              value: SessionTracking_Node
+            - name: ENABLE_IRP
+              value: "true"
+
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+      restartPolicy: Always
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: session-tracking
+  labels:
+    app: ad-financial
+    run: session-tracking
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+  selector:
+    run: session-tracking
+---
