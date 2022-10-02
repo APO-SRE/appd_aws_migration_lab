@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./get_ips_for_rds_security_group.sh
+./get_ips_for_cloud_db_security_group.sh
 
 ##### Update RDS security group with EKS IPs
 

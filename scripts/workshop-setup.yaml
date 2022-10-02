@@ -75,7 +75,7 @@ shellTasks:
     taskName: "get-ips-for-db-sg"
     inputTags:
       - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_FILEPATH]"
-        tagValue: "./scripts/get_ips_for_rds_security_group.sh"
+        tagValue: "./scripts/get_ips_for_cloud_db_security_group.sh"
       - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_BEGIN_MSG]"
         tagValue: " - Start obtaining ip addresses for db security group"
       - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_END_MSG]"
