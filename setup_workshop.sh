@@ -6,6 +6,7 @@
 # Before this script is run, the lab user should execute the four commands seen below:
 #
 # git clone https://github.com/APO-SRE/appd_aws_migration_lab.git migration_workshop
+
 # cd migration_workshop
 # chmod +x setup_workshop.sh
 # export appd_workshop_user=jedi7
@@ -45,6 +46,7 @@ echo ""
 echo "########################################################################################    STARTING APPDYNAMICS CLOUD WORKSHOP PREREQUISITES    ################################################################################"
 
 
+
 ##### This assumes that the Git Repo has been cloned
 if [ ! -d ./scripts/state ]; then
   mkdir ./scripts/state
@@ -61,6 +63,9 @@ find ./ -type f -iname "*.sh" -exec chmod +x {} \;
 ##### Remove Windows CRLF from all shell scripts
 sed -i -e 's/\r$//' ./scripts/*.sh
 
+
+##### Resize the EBS Volume
+./scripts/resize_al2_ebs_volume.sh
 
 # check to see if user_id file exists and if so read in the user_id
 if [ -f "./scripts/state/appd_workshop_user.txt" ]; then

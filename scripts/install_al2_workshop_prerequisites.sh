@@ -10,7 +10,7 @@ echo ""
 
 #sudo /bin/bash 
 
-./scripts/resize_al2_ebs_volume.sh
+#./scripts/resize_al2_ebs_volume.sh
 
 ./scripts/install_kubectl.sh
 
