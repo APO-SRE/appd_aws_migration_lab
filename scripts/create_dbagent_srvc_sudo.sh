@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo ./create_dbagent_srvc.sh
+sudo ./scripts/create_dbagent_srvc.sh

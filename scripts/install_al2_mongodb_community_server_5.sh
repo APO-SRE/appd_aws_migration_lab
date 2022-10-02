@@ -1,4 +1,4 @@
-#!/bin/sh -eux
+#!/bin/bash
 #---------------------------------------------------------------------------------------------------
 # Execute this script like this 'sudo ./install_al2_mongodb_community_server_5.sh' 
 # or else it will give permission denied error on line 42
@@ -19,7 +19,7 @@
 #       Script should be run with 'root' privilege.
 #---------------------------------------------------------------------------------------------------
 
-set +x  # temporarily turn command display OFF.
+#set +x  # temporarily turn command display OFF.
 echo "####################################################################################################"
 echo " Start Installing MongoDB"
 echo "####################################################################################################"

@@ -8,7 +8,7 @@
 # git clone https://github.com/APO-SRE/appd_aws_migration_lab.git migration_workshop
 # cd migration_workshop
 # chmod +x setup_workshop.sh
-# export appd_workshop_user=JEIDI
+# export appd_workshop_user=jedi7
 #
 # NOTE: All inputs are defined by external environment variables.
 #       Optional variables have reasonable defaults, but you may override as needed.

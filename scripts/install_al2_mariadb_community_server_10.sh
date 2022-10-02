@@ -1,4 +1,4 @@
-#!/bin/sh -eux
+#!/bin/bash
 #---------------------------------------------------------------------------------------------------
 # Install MariaDB Community Server 10.6 by MariaDB on CentOS Linux 7.x.
 #
@@ -24,7 +24,7 @@
 # set default values for input environment variables if not set. -----------------------------------
 # [OPTIONAL] mariadb server install parameters [w/ defaults].
 
-set +x  # temporarily turn command display OFF.
+#set +x  # temporarily turn command display OFF.
 echo "####################################################################################################"
 echo " Start Installing MariaDB"
 echo "####################################################################################################"
