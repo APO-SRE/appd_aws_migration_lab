@@ -2,15 +2,9 @@
 
 #set +x  # temporarily turn command display OFF.
 
-cd load-generation
-./stop.sh
+/bin/bash ./home/ec2-user/environment/migration_workshop/applications/pre-migration/load-generation/stop.sh
 
-cd ..
-cd java-webapps
-./stop.sh
+/bin/bash ./home/ec2-user/environment/migration_workshop/applications/pre-migration/java-webapps/stop.sh
 
-cd ..
-cd java-monolithic-services
-./stop.sh
+/bin/bash ./home/ec2-user/environment/migration_workshop/applications/pre-migration/java-monolithic-services/stop.sh
 
-cd ..

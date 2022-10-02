@@ -16,10 +16,7 @@ sudo pkill -f machineagent.jar
 echo "CloudWorkshop|INFO| - Stopping Local Application"
 echo " "
 
-cd ..
-cd applications
-cd pre-migration
-./stop_app.sh
+/bin/bash ./home/ec2-user/environment/migration_workshop/applications/pre-migration/stop_app.sh
 
 echo " "
 echo "CloudWorkshop|INFO| - Finished Stopping Local Application"
@@ -38,8 +35,7 @@ echo " "
 echo "CloudWorkshop|INFO| - Starting EKS Cluster Deletion"
 echo " "
 
-cd ..
-cd post-migration
+cd /home/ec2-user/environment/migration_workshop/applicationspost-migration
 
 eksctl delete cluster -f ./cluster.yaml
 
