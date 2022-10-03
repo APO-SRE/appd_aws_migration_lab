@@ -4,7 +4,9 @@
 
 find ./ -type f -iname "*.sh" -exec chmod +x {} \;
 
-/bin/bash ./home/ec2-user/environment/migration_workshop/applications/pre-migration/java-monolithic-services/start.sh
+cd /home/ec2-user/environment/migration_workshop/applications/pre-migration/java-monolithic-services
+
+/bin/bash ./start.sh
 
 sleep 3
 
@@ -33,8 +35,9 @@ echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..."
 sleep 3
 echo "CloudWorkshop|INFO| - Finished Deploying FinancialServices Tier"
 
+cd /home/ec2-user/environment/migration_workshop/applications/pre-migration/java-webapps
 
-/bin/bash ./home/ec2-user/environment/migration_workshop/applications/pre-migration/java-webapps/start.sh
+/bin/bash ./start.sh
 
 sleep 3
 
@@ -63,8 +66,9 @@ echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..."
 sleep 3
 echo "CloudWorkshop|INFO| - Finished Deploying WebFrontEnd Tier"
 
+cd /home/ec2-user/environment/migration_workshop/applications/pre-migration/load-generation
 
-/bin/bash ./home/ec2-user/environment/migration_workshop/applications/pre-migration/load-generation/start.sh
+/bin/bash ./start.sh
 
 # Wait 30 seconds : 30 secs
 echo "CloudWorkshop|INFO| - Deploying Load Generator ..........................................................................."
