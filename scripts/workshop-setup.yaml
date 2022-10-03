@@ -489,8 +489,8 @@ controllerTasks:
     inputTags:
       - tagKey: "@[ADWRKSHP_APM_APP_NAME_POST]"
         tagValue: "adfin-post-migrate-@[ADWRKSHP_LABUSER_KEY]"
-      - tagKey: "@[ADWRKSHP_APM_APP_TYPE]"
-        tagValue: "@[ADWRKSHP_APM_APP_TYPE_K8S]"
+#      - tagKey: "@[ADWRKSHP_APM_APP_TYPE]"
+#        tagValue: "@[ADWRKSHP_APM_APP_TYPE_K8S]"
   
     templateTargets:
     
