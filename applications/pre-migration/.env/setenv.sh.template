@@ -18,9 +18,9 @@ export LOADGEN_PORT=8080
 export ADWRKSHP_CLOUD_MODE=none
 export ADWRKSHP_LABUSER_KEY=${ADWRKSHP_LABUSER_KEY}
 export ADWRKSHP_IS_MONOLITHIC=true
-export ADWRKSHP_APP_GRAPH_PATH=/home/ec2-user/environment/migration_workshop/java-monolithic-services/app-graph.json
+export ADWRKSHP_APP_GRAPH_PATH=/home/ec2-user/environment/migration_workshop/applications/pre-migration/java-monolithic-services/app-graph.json
 export ADWRKSHP_TIER_SRVC_NAME=FinancialServices
-export REPOS_CONFIG_FILE=/home/ec2-user/environment/migration_workshop/java-monolithic-services/repos-config.yaml
+export REPOS_CONFIG_FILE=/home/ec2-user/environment/migration_workshop/applications/pre-migration/java-monolithic-services/repos-config.yaml
 
 export ADWRKSHP_ACCOUNT_MANAGEMENT_URL=http://localhost:8081/accounts/api/
 export ADWRKSHP_AUTH_SRVCS_URL=http://localhost:8081/auth/api/
