@@ -89,7 +89,8 @@ shellTasks:
       - tagKey: "@[ADWRKSHP_JAVA_AGENT_HOME_DIR]"
         tagValue: "/opt/appdynamics/javaagent"
       - tagKey: "@[ADWRKSHP_JAVA_AGENT_ZIP_URL]"
-        tagValue: "https://download-files.appdynamics.com/download-file/java-jdk8/22.9.0.34210/AppServerAgent-1.8-22.9.0.34210.zip"
+        tagValue: "https://download-files.appdynamics.com/download-file/sun-jvm/22.3.0.33637/AppServerAgent-22.3.0.33637.zip
+        #tagValue: "https://download-files.appdynamics.com/download-file/java-jdk8/22.9.0.34210/AppServerAgent-1.8-22.9.0.34210.zip"
       - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_BEGIN_MSG]"
         tagValue: " - Start deployment of java apm agent"
       - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_END_MSG]"
@@ -261,6 +262,23 @@ shellTasks:
 
       
 templates:
+  - templateName: "cluster-agent-conf"
+    sourceFile: "./applications/post-migration/clusteragent/values-ca1.yaml.template"
+    destinationFile: "./applications/post-migration/clusteragent/values-ca2.yaml.template"
+    tags:
+      - tagKey: "${ADWRKSHP_CONTROLLER_URL_FULL}"
+        tagValue: "@[ADWRKSHP_CONTROLLER_URL_FULL]"
+        
+      - tagKey: "${ADWRKSHP_CONTROLLER_ACCT_NAME}"
+        tagValue: "@[ADWRKSHP_CONTROLLER_ACCT_NAME]"
+
+      - tagKey: "${ADWRKSHP_CONTROLLER_GLOBAL_ACCT_NAME}"
+        tagValue: "@[ADWRKSHP_CONTROLLER_GLOBAL_ACCT_NAME]"
+                
+      - tagKey: "${ADWRKSHP_APM_APP_NAME}"
+        tagValue: "@[ADWRKSHP_APM_APP_NAME_POST]"
+
+
   - templateName: "pre-migrate-loadgen-conf"
     sourceFile: "./applications/pre-migration/load-generation/application.env.template"
     destinationFile: "./applications/pre-migration/load-generation/application.env"
@@ -499,6 +517,10 @@ controllerTasks:
           - tagKey: "${ADWRKSHP_APM_APP_NAME}"
             tagValue: "@[ADWRKSHP_APM_APP_NAME_POST]"
 
+      - templateName: "cluster-agent-conf"
+        targetTags:
+          - tagKey: "${ADWRKSHP_APM_APP_NAME}"
+            tagValue: "@[ADWRKSHP_APM_APP_NAME_POST]"
             
       - templateName: "workshop-user-details"
         targetTags:
@@ -679,6 +701,18 @@ controllerTasks:
 
           - tagKey: "${ADWRKSHP_RANDOM_UUID}"
             tagValue: "@[ADWRKSHP_RANDOM_UUID]"    
+
+
+      - templateName: "cluster-agent-conf"
+        targetTags:
+          - tagKey: "${ADWRKSHP_CONTROLLER_URL_FULL}"
+            tagValue: "@[ADWRKSHP_CONTROLLER_URL_FULL]"
+
+          - tagKey: "${ADWRKSHP_CONTROLLER_ACCT_NAME}"
+            tagValue: "@[ADWRKSHP_CONTROLLER_ACCT_NAME]"    
+
+          - tagKey: "${ADWRKSHP_CONTROLLER_GLOBAL_ACCT_NAME}"
+            tagValue: "@[ADWRKSHP_CONTROLLER_GLOBAL_ACCT_NAME]"    
 
 
       - templateName: "workshop-user-details"
