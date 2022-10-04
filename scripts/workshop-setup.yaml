@@ -89,8 +89,7 @@ shellTasks:
       - tagKey: "@[ADWRKSHP_JAVA_AGENT_HOME_DIR]"
         tagValue: "/opt/appdynamics/javaagent"
       - tagKey: "@[ADWRKSHP_JAVA_AGENT_ZIP_URL]"
-        tagValue: "https://download-files.appdynamics.com/download-file/sun-jvm/22.3.0.33637/AppServerAgent-22.3.0.33637.zip
-        #tagValue: "https://download-files.appdynamics.com/download-file/java-jdk8/22.9.0.34210/AppServerAgent-1.8-22.9.0.34210.zip"
+        tagValue: "https://download-files.appdynamics.com/download-file/sun-jvm/22.3.0.33637/AppServerAgent-22.3.0.33637.zip"
       - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_BEGIN_MSG]"
         tagValue: " - Start deployment of java apm agent"
       - tagKey: "@[ADWRKSHP_SHELL_SCRIPT_END_MSG]"
