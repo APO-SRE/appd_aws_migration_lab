@@ -20,6 +20,6 @@
 
 appd_wrkshp_last_setupstep_done="100"
 
-java -DworkshopUtilsConf=../applications/post-migration/clusteragent/agent-setup.yaml -DworkshopAction=elevatedinstall -DlastSetupStepDone=${appd_wrkshp_last_setupstep_done} -DshowWorkshopBanner=false -jar ../AD-Workshop-Utils.jar
+java -DworkshopUtilsConf=./applications/post-migration/clusteragent/agent-setup.yaml -DworkshopAction=elevatedinstall -DlastSetupStepDone=${appd_wrkshp_last_setupstep_done} -DshowWorkshopBanner=false -jar ./AD-Workshop-Utils.jar
 
-#rm -f values-ca1.yaml
+#rm -f ./applications/post-migration/clusteragent/values-ca1.yaml

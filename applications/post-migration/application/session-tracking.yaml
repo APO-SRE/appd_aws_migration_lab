@@ -4,6 +4,7 @@ metadata:
   name: session-tracking
   labels:
     framework: java
+    tiername: SessionTracking
 spec:
   replicas: 1
   selector:

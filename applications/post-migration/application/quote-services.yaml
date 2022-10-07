@@ -4,6 +4,7 @@ metadata:
   name: quote-services
   labels:
     framework: java
+    tiername: QuoteServices
 spec:
   replicas: 1
   selector:

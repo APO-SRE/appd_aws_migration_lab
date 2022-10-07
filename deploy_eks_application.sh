@@ -1,16 +1,19 @@
 #!/bin/bash
 
-./get_ips_for_cloud_db_security_group.sh
-
 ##### Update RDS security group with EKS IPs
 
+appd_wrkshp_last_setupstep_done="160"
 
+java -DworkshopUtilsConf=./scripts/workshop-setup.yaml -DworkshopTeardownConf=./scripts/state/workshop-teardown.yaml -DworkshopAction=updatecloudsg -DlastSetupStepDone=${appd_wrkshp_last_setupstep_done} -DshowWorkshopBanner=false -jar ./AD-Workshop-Utils.jar
 
-
+echo ""
+echo "##############################################################################################################################################################"
+echo " Start Deploying Application to EKS"
+echo "##############################################################################################################################################################"
+echo ""
 
 ##### Deploy application to EKS
 
-cd ..
 cd applications
 cd post-migration
 cd application
@@ -36,7 +39,6 @@ kubectl create -f ./web-front-end.yaml
 kubectl create -f ./biz-loan-load-01.yaml
 kubectl create -f ./browser-load.yaml
 kubectl create -f ./per-loan-load-01.yaml
-
 
 # Wait 30 seconds : 30 secs
 echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .............................................................."
@@ -164,5 +166,9 @@ echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ...."
 sleep 3
 echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..."
 sleep 3
-echo "CloudWorkshop|INFO| - Finished Deploying Application to EKS"
+echo ""
+echo "##############################################################################################################################################################"
+echo " Finished Deploying Application to EKS"
+echo "##############################################################################################################################################################"
+echo ""
 

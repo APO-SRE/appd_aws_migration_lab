@@ -4,6 +4,7 @@ metadata:
   name: balance-services
   labels:
     framework: java
+    tiername: BalanceServices
 spec:
   replicas: 2
   selector:

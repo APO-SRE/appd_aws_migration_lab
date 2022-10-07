@@ -4,6 +4,7 @@ metadata:
   name: biz-loan-services
   labels:
     framework: java
+    tiername: BizLoanServices
 spec:
   replicas: 2
   selector:

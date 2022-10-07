@@ -4,6 +4,7 @@ metadata:
   name: order-processing
   labels:
     framework: java
+    tiername: OrderProcessing
 spec:
   replicas: 1
   selector:

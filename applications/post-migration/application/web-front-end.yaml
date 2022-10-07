@@ -4,6 +4,7 @@ metadata:
   name: web-front-end
   labels:
     framework: java
+    tiername: WebFrontEnd
 spec:
   replicas: 2
   selector:

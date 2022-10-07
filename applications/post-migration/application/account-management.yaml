@@ -4,6 +4,7 @@ metadata:
   name: account-management
   labels:
     framework: java
+    tiername: AccountManagement
 spec:
   replicas: 2
   selector:

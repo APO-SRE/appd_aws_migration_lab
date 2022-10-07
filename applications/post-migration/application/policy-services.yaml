@@ -4,6 +4,7 @@ metadata:
   name: policy-services
   labels:
     framework: java
+    tiername: PolicyServices
 spec:
   replicas: 1
   selector:

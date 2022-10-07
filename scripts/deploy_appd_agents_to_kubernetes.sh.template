@@ -13,10 +13,6 @@
 
 # set default values for input environment variables if not set. -----------------------------------
 
-cd ..
-cd applications
-cd post-migration
-cd clusteragent
 
 # install the appdynamics helm charts into the local helm repo
 helm repo add appdynamics-charts https://ciscodevnet.github.io/appdynamics-charts
@@ -25,6 +21,6 @@ helm repo add appdynamics-charts https://ciscodevnet.github.io/appdynamics-chart
 kubectl create namespace appdynamics
 
 # install the appdynamics agents in the EKS cluster
-helm install -f ./values-ca1.yaml "@[ADWRKSHP_CLUSTER_AGENT_NAME_01]" appdynamics-charts/cluster-agent --namespace=appdynamics
+helm install -f ./applications/post-migration/clusteragent/values-ca1.yaml "@[ADWRKSHP_CLUSTER_AGENT_NAME_01]" appdynamics-charts/cluster-agent --namespace=appdynamics
 
 

@@ -4,6 +4,7 @@ metadata:
   name: authentication-services
   labels:
     framework: java
+    tiername: AuthenticationServices
 spec:
   replicas: 1
   selector:

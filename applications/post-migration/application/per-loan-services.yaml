@@ -4,6 +4,7 @@ metadata:
   name: per-loan-services
   labels:
     framework: java
+    tiername: PerLoanServices
 spec:
   replicas: 2
   selector:
