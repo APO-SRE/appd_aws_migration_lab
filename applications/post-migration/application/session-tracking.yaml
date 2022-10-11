@@ -17,6 +17,7 @@ spec:
         app: ad-financial
         run: session-tracking
     spec:
+      serviceAccountName: appd-app-services
       containers:
         - name: session-tracking
           image: public.ecr.aws/w3n5a5m8/adfinmod_java_services_post:latest

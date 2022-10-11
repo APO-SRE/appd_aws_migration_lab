@@ -17,6 +17,7 @@ spec:
         app: ad-financial
         run: balance-services
     spec:
+      serviceAccountName: appd-app-services
       containers:
         - name: balance-services
           image: public.ecr.aws/w3n5a5m8/adfinmod_java_repositories_pre:latest

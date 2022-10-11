@@ -17,6 +17,7 @@ spec:
         app: ad-financial
         run: policy-services
     spec:
+      serviceAccountName: appd-app-services
       containers:
         - name: policy-services
           image: public.ecr.aws/w3n5a5m8/adfinmigrt_java_services_post:latest

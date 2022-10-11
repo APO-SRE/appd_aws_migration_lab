@@ -17,6 +17,7 @@ spec:
         app: ad-financial
         run: web-front-end
     spec:
+      serviceAccountName: appd-app-services
       containers:
         - name: web-front-end
           image: public.ecr.aws/w3n5a5m8/adfinmod_java_webapps_pre:latest
