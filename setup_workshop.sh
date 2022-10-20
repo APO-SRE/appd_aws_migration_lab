@@ -63,7 +63,11 @@ find ./ -type f -iname "*.sh" -exec chmod +x {} \;
 sed -i -e 's/\r$//' ./scripts/*.sh
 
 ##### Hoping this will improve failure rate of volume resize
-sudo ./scripts/install_al2_aws_cli_v2.sh
+#if [ ! -d /opt/awscliv2 ]; then
+#  sudo mkdir /opt/awscliv2
+#  sudo chown -R ec2-user:ec2-user /opt/awscliv2
+#  sudo ./scripts/install_al2_aws_cli_v2.sh
+#fi
 
 
 ##### Resize the EBS Volume
