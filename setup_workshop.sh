@@ -63,7 +63,7 @@ find ./ -type f -iname "*.sh" -exec chmod +x {} \;
 sed -i -e 's/\r$//' ./scripts/*.sh
 
 ##### Hoping this will improve failure rate of volume resize
-#sudo pip install --upgrade awscli && hash -r
+sudo ./scripts/install_al2_aws_cli_v2.sh
 
 
 ##### Resize the EBS Volume
