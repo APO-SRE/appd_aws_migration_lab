@@ -70,7 +70,7 @@ find ./ -type f -iname "*.sh" -exec chmod +x {} \;
 ##### Remove Windows CRLF from all shell scripts
 sed -i -e 's/\r$//' ./scripts/*.sh
 sed -i -e 's/\r$//' create_eks_cluster.sh
-sed -i -e 's/\r$//' deploy_appdynamics_agents.sh.sh
+sed -i -e 's/\r$//' deploy_appdynamics_agents.sh
 sed -i -e 's/\r$//' deploy_eks_application.sh
 sed -i -e 's/\r$//' teardown_workshop.sh
 
@@ -84,13 +84,7 @@ sed -i -e 's/\r$//' teardown_workshop.sh
 
 
 ##### Resize the EBS Volume
-# Rewrite the partition table so that the partition takes up all the space that it can.
-sudo growpart /dev/nvme0n1 1
-
-# Expand the size of the file system.
-sudo xfs_growfs -d /
-
-#./scripts/resize_al2_ebs_volume.sh
+./scripts/resize_al2_ebs_volume.sh
 
 
 # check to see if user_id file exists and if so read in the user_id

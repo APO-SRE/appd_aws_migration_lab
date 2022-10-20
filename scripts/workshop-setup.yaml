@@ -16,8 +16,6 @@ teardownScript: "./scripts/terminate_applications.sh"
 
 taskExecutionOrder:
   - taskType: "SHELL_TASK"
-    taskName: "expand-disk-volume"
-  - taskType: "SHELL_TASK"
     taskName: "workshop-prereqs-sh"
   - taskType: "SHELL_TASK"
     taskName: "deploy-java-agent"
@@ -60,6 +58,8 @@ taskExecutionOrder:
 #  - taskType: "SHELL_TASK"
 #    taskName: "expose-kube-website"
 
+#  - taskType: "SHELL_TASK"
+#    taskName: "expand-disk-volume"
     
 shellTasks:
   - taskType: "SHELL_TASK_EXPAND_DISK_VOLUME"
