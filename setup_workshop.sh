@@ -8,7 +8,7 @@
 # git clone https://github.com/APO-SRE/appd_aws_migration_lab.git migration_workshop
 # cd migration_workshop
 # chmod +x setup_workshop.sh
-# export appd_workshop_user=jedi7
+# export appd_workshop_user=jedi
 #
 # NOTE: All inputs are defined by external environment variables.
 #       Optional variables have reasonable defaults, but you may override as needed.
@@ -61,6 +61,9 @@ find ./ -type f -iname "*.sh" -exec chmod +x {} \;
 
 ##### Remove Windows CRLF from all shell scripts
 sed -i -e 's/\r$//' ./scripts/*.sh
+
+##### Hoping this will improve failure rate of volume resize
+sudo pip install --upgrade awscli && hash -r
 
 
 ##### Resize the EBS Volume

@@ -733,6 +733,37 @@ controllerTasks:
             tagValue: "@[ADWRKSHP_LABUSER_KEY]"
             
 
+controllerFinalTasks:
+
+  - taskType: "CONTROLLER_TASK_CREATE_BT_ART_HEALTH_RULE"
+    taskName: "create-bt-art-health-rule-pre"
+    inputTags:
+      - tagKey: "@[ADWRKSHP_APM_APP_NAME_PRE]"
+        tagValue: "adfin-pre-migrate-@[ADWRKSHP_LABUSER_KEY]"
+      - tagKey: "@[ADWRKSHP_HEALTH_RULE_NAME]"
+        tagValue: "Transaction Response Health"
+      - tagKey: "@[ADWRKSHP_HEALTH_RULE_ART_MILLIS]"
+        tagValue: "1000"
+      - tagKey: "@[ADWRKSHP_BT_ORIGNAL_NAME_01]"
+        tagValue: "/rest/loanVerifyDocumentation"
+      - tagKey: "@[ADWRKSHP_BT_ORIGNAL_NAME_02]"
+        tagValue: "/rest/loanUnderwritingComplete"
+      - tagKey: "@[ADWRKSHP_BT_ORIGNAL_NAME_03]"
+        tagValue: "/rest/loanCreditCheck"
+
+
+
+
+#    templateTargets:        
+#      - templateName: "pre-migrate-app-conf"
+#        targetTags:
+#          - tagKey: "${ADWRKSHP_APM_APP_NAME}"
+#            tagValue: "@[ADWRKSHP_APM_APP_NAME_PRE]"
+#            
+#      - templateName: "workshop-user-details"
+#        targetTags:
+#          - tagKey: "${ADWRKSHP_APM_APP_NAME_PRE}"
+#            tagValue: "@[ADWRKSHP_APM_APP_NAME_PRE]"    
             
             
 cloudTasks:
