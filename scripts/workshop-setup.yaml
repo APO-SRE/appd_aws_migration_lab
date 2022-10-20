@@ -45,6 +45,9 @@ taskExecutionOrder:
   - taskType: "SHELL_TASK"
     taskName: "create-simagent-srvc-sh"
 
+  - taskType: "CONTROLLER_FINAL_TASKS"
+    taskName: "create-bt-art-health-rule-pre"
+
 
 #  - taskType: "SHELL_TASK"
 #    taskName: "create-kube-cluster"    
