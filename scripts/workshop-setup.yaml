@@ -16,6 +16,8 @@ teardownScript: "./scripts/terminate_applications.sh"
 
 taskExecutionOrder:
   - taskType: "SHELL_TASK"
+    taskName: "expand-disk-volume"
+  - taskType: "SHELL_TASK"
     taskName: "workshop-prereqs-sh"
   - taskType: "SHELL_TASK"
     taskName: "deploy-java-agent"
@@ -60,6 +62,13 @@ taskExecutionOrder:
 
     
 shellTasks:
+  - taskType: "SHELL_TASK_EXPAND_DISK_VOLUME"
+    taskName: "expand-disk-volume"
+    inputTags:
+      - tagKey: "@[ADWRKSHP_DISK_VOLUME_SIZE_GB]"
+        tagValue: "80"
+
+
   - taskType: "SHELL_TASK_EXECUTE_SHELL_SCRIPT"
     taskName: "workshop-prereqs-sh"
     inputTags:

@@ -44,7 +44,15 @@ echo ""
 
 echo " ##################################################################################    STARTING APPDYNAMICS CLOUD WORKSHOP PREREQUISITES    ##########################################################################"
 
+##### check to see if we have the XFS file system
+df_output=$(df -khT)
 
+if [[ !$df_output != *"/dev/nvme0n1p1 xfs"* ]]; then
+  echo "CloudWorkshop|ERROR| - Oops, :(  it looks like you may have accidentally selected Amazon Linux instead of Amazon Linux 2 for the Platform option."
+  echo "CloudWorkshop|ERROR| - Please discard this Cloud9 instance and create a new one with the required Amazon Linux 2 Platform option."
+  #echo "$df_output"
+  exit 1
+fi
 
 ##### This assumes that the Git Repo has been cloned
 if [ ! -d ./scripts/state ]; then
@@ -61,6 +69,11 @@ find ./ -type f -iname "*.sh" -exec chmod +x {} \;
 
 ##### Remove Windows CRLF from all shell scripts
 sed -i -e 's/\r$//' ./scripts/*.sh
+sed -i -e 's/\r$//' create_eks_cluster.sh
+sed -i -e 's/\r$//' deploy_appdynamics_agents.sh.sh
+sed -i -e 's/\r$//' deploy_eks_application.sh
+sed -i -e 's/\r$//' teardown_workshop.sh
+
 
 ##### Hoping this will improve failure rate of volume resize
 #if [ ! -d /opt/awscliv2 ]; then
@@ -71,7 +84,14 @@ sed -i -e 's/\r$//' ./scripts/*.sh
 
 
 ##### Resize the EBS Volume
-./scripts/resize_al2_ebs_volume.sh
+# Rewrite the partition table so that the partition takes up all the space that it can.
+sudo growpart /dev/nvme0n1 1
+
+# Expand the size of the file system.
+sudo xfs_growfs -d /
+
+#./scripts/resize_al2_ebs_volume.sh
+
 
 # check to see if user_id file exists and if so read in the user_id
 if [ -f "./scripts/state/appd_workshop_user.txt" ]; then
