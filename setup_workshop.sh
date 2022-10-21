@@ -44,6 +44,10 @@ echo ""
 
 echo " ##################################################################################    STARTING APPDYNAMICS CLOUD WORKSHOP PREREQUISITES    ##########################################################################"
 
+export AWS_RETRY_MODE=standard
+export AWS_MAX_ATTEMPTS=10
+
+
 ##### check to see if we have the XFS file system
 df_output=$(df -khT)
 

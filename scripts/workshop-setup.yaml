@@ -47,7 +47,8 @@ taskExecutionOrder:
 
   - taskType: "CONTROLLER_FINAL_TASKS"
     taskName: "create-bt-art-health-rule-pre"
-
+  - taskType: "CONTROLLER_FINAL_TASKS"
+    taskName: "create-nodes-art-health-rule-pre"
 
 #  - taskType: "SHELL_TASK"
 #    taskName: "create-kube-cluster"    
@@ -763,7 +764,15 @@ controllerFinalTasks:
       - tagKey: "@[ADWRKSHP_BT_ORIGNAL_NAME_03]"
         tagValue: "/rest/loanCreditCheck"
 
-
+  - taskType: "CONTROLLER_TASK_CREATE_NODES_ART_HEALTH_RULE"
+    taskName: "create-nodes-art-health-rule-pre"
+    inputTags:
+      - tagKey: "@[ADWRKSHP_APM_APP_NAME_PRE]"
+        tagValue: "adfin-pre-migrate-@[ADWRKSHP_LABUSER_KEY]"
+      - tagKey: "@[ADWRKSHP_HEALTH_RULE_NAME]"
+        tagValue: "Transaction Response Time"
+      - tagKey: "@[ADWRKSHP_HEALTH_RULE_ART_MILLIS]"
+        tagValue: "1000"
 
 
 #    templateTargets:        
