@@ -16,7 +16,15 @@ SIZE=${1:-80}
 echo "#########################################"
 echo " Resizing Volume To" $SIZE "GB"
 echo "#########################################"
-
+echo ""
+echo ""
+echo "##################################################################################################"
+echo " Be prepared to wait up to 20 minutes or more for the volume resizing to complete."
+echo " The 'aws ec2 modify-volume' service used is frequently unavailable so this script" 
+echo " is set to retry 100 times to try and connect to the service."
+echo ""
+echo " You can safley stop this script from running if desired and rerun it at a later time as well."
+echo "##################################################################################################"
 
 echo ""
 
