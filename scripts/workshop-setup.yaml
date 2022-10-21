@@ -744,10 +744,9 @@ controllerTasks:
         targetTags:
           - tagKey: "${ADWRKSHP_LABUSER_KEY}"
             tagValue: "@[ADWRKSHP_LABUSER_KEY]"
+
             
-
 controllerFinalTasks:
-
   - taskType: "CONTROLLER_TASK_CREATE_BT_ART_HEALTH_RULE"
     taskName: "create-bt-art-health-rule-pre"
     inputTags:
