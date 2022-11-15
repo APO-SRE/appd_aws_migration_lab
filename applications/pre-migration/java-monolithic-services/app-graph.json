@@ -229,7 +229,7 @@
 
                 "actions": [
                     {
-                        "name": "amex-api",
+                        "name": "amex-api-1",
                         "type": "HttpAction",
                         "properties": {
                             "requestMethod": "POST",
@@ -254,7 +254,15 @@
                             "requestMethod": "POST",
                             "url": "https://fso-payment-gw-sim.azurewebsites.net/api/payment?addressName=jrs-address"
                         }
-                    },                    
+                    },
+                    {
+                        "name": "amex-api-2",
+                        "type": "HttpAction",
+                        "properties": {
+                            "requestMethod": "POST",
+                            "url": "https://amex-fso-payment-gw-sim.azurewebsites.net/api/payment?addressName=jrs-address"
+                        }
+                    },                                                            
                     {
                         "name": "mongo-policies",
                         "type": "MongoAction",

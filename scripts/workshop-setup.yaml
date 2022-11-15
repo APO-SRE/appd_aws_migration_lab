@@ -49,6 +49,9 @@ taskExecutionOrder:
     taskName: "create-bt-art-health-rule-pre"
   - taskType: "CONTROLLER_FINAL_TASKS"
     taskName: "create-nodes-art-health-rule-pre"
+  - taskType: "CONTROLLER_FINAL_TASKS"
+    taskName: "ungroup-rename-flowmap-comps-pre"
+
 
 #  - taskType: "SHELL_TASK"
 #    taskName: "create-kube-cluster"    
@@ -575,6 +578,8 @@ controllerTasks:
   - taskType: "CONTROLLER_TASK_CREATE_DB_COLLECTOR"
     taskName: "adfin-db-collector-post"
     inputTags:
+      - tagKey: "@[ADWRKSHP_APM_APP_NAME]"
+        tagValue: "adfin-post-migrate-@[ADWRKSHP_LABUSER_KEY]"      
       - tagKey: "@[ADWRKSHP_CLOUD_DB_INST_NAME]"
         tagValue: "adfin-post-migrate-@[ADWRKSHP_LABUSER_KEY]"    
       - tagKey: "@[ADWRKSHP_CLOUD_DB_INST_TYPE]"
@@ -600,6 +605,8 @@ controllerTasks:
   - taskType: "CONTROLLER_TASK_CREATE_DB_COLLECTOR"
     taskName: "adfin-db-collector-pre"
     inputTags:
+      - tagKey: "@[ADWRKSHP_APM_APP_NAME]"
+        tagValue: "adfin-pre-migrate-@[ADWRKSHP_LABUSER_KEY]"      
       - tagKey: "@[ADWRKSHP_CLOUD_DB_INST_NAME]"
         tagValue: "adfin-pre-migrate-@[ADWRKSHP_LABUSER_KEY]"    
       - tagKey: "@[ADWRKSHP_CLOUD_DB_INST_TYPE]"
@@ -773,6 +780,55 @@ controllerFinalTasks:
       - tagKey: "@[ADWRKSHP_HEALTH_RULE_ART_MILLIS]"
         tagValue: "1000"
 
+# In order to ungroup flowmap components, you must include every Tier definition, Individual backend definition, 
+# and a definition for each backend group that initially shows up on the flowmap
+  - taskType: "CONTROLLER_TASK_UNGROUP_RENAME_FLOWMAP_COMPONENTS"
+    taskName: "ungroup-rename-flowmap-comps-pre"
+    inputTags:
+      - tagKey: "@[ADWRKSHP_APM_APP_NAME_PRE]"
+        tagValue: "adfin-pre-migrate-@[ADWRKSHP_LABUSER_KEY]"
+        # format for the tagValue for "@[ADWRKSHP_FLOWMAP_COMPONENT]" is
+        # componentType (see "Flowmap Components" in com.appdynamics.cloud.modern.ApplicationConstants)
+        # componentOrginalName (as original seen on the flowmap),
+        # componentNewName (can be anything except a null or zero lenth string when renameComponent: false), (otherwise it will rename the component )
+        # renameComponent (true or false)
+        #
+        # (example - DB Component) - tagValue: "FM_DB_COMP,CASHACCOUNTS-MySQL-LOCALHOST-5.5.5-10.2.38-MariaDB,MySQL-5.7.38-CASHACCOUNTS,true"
+        # (example - Tier Component) - tagValue: "FM_TIER_COMP,FinancialServices,xxx,false"
+        # (example - Backend Group Component) - tagValue: "FM_BACKEND_GROUP_COMPBackendGoup1,xxx,false"
+        #
+        # Note: For "FM_BACKEND_GROUP_COMP" types, componentOrginalName can be anything except null or a zero length string,
+        # and the "componentNewName" value can be arbitrary since their will be no renaming on these
+        # For "FM_TIER_COMP"
+        # It's advised to name each tagKey as "@[ADWRKSHP_FLOWMAP_COMPONENT" with a unique number as the suffix
+      - tagKey: "@[ADWRKSHP_FLOWMAP_COMPONENT_01]"
+        tagValue: "FM_TIER_COMP,FinancialServices,xxx,false"
+      - tagKey: "@[ADWRKSHP_FLOWMAP_COMPONENT_02]"
+        tagValue: "FM_TIER_COMP,WebFrontEnd,xxx,false"
+      - tagKey: "@[ADWRKSHP_FLOWMAP_COMPONENT_03]"
+        tagValue: "FM_DB_COMP,LOANACCOUNTS-MySQL-LOCALHOST-5.5.5-10.2.38-MariaDB,MySQL-5.7.38-LOANACCOUNTS,true"
+      - tagKey: "@[ADWRKSHP_FLOWMAP_COMPONENT_04]"
+        tagValue: "FM_DB_COMP,LOANACCOUNTS-MySQL-LOCALHOST-5.5.5-10.2.38-MariaDB,MySQL-5.7.38-LOANACCOUNTS,true"
+      - tagKey: "@[ADWRKSHP_FLOWMAP_COMPONENT_05]"
+        tagValue: "FM_DB_COMP,CASHACCOUNTS-MySQL-LOCALHOST-5.5.5-10.2.38-MariaDB,MySQL-5.7.38-CASHACCOUNTS,true"
+      - tagKey: "@[ADWRKSHP_FLOWMAP_COMPONENT_06]"
+        tagValue: "FM_RS_HTTP_COMP,fso-payment-gw-sim.azurewebsites.net:443,mcard-payment-gw-sim.mcard.net:443,true"
+      - tagKey: "@[ADWRKSHP_FLOWMAP_COMPONENT_07]"
+        tagValue: "FM_RS_HTTP_COMP,amex-fso-payment-gw-sim.azurewebsites.net:443,amex-payment-gw-sim.amex.net:443,true"
+      - tagKey: "@[ADWRKSHP_FLOWMAP_COMPONENT_08]"
+        tagValue: "FM_RS_HTTP_COMP,www.equifax.com:443,xxx,false"
+      - tagKey: "@[ADWRKSHP_FLOWMAP_COMPONENT_09]"
+        tagValue: "FM_RS_MONGODB_COMP,localhost.27017.stocks,MongoDB.27017.stocks,true"
+      - tagKey: "@[ADWRKSHP_FLOWMAP_COMPONENT_10]"
+        tagValue: "FM_RS_MONGODB_COMP,localhost.27017.orders,MongoDB.27017.orders,true"
+      - tagKey: "@[ADWRKSHP_FLOWMAP_COMPONENT_11]"
+        tagValue: "FM_RS_MONGODB_COMP,localhost.27017.policies,MongoDB.27017.policies,true"
+      - tagKey: "@[ADWRKSHP_FLOWMAP_COMPONENT_12]"
+        tagValue: "FM_BACKEND_GROUP_COMP,BackendGoup1,xxx,false"
+      - tagKey: "@[ADWRKSHP_FLOWMAP_COMPONENT_13]"
+        tagValue: "FM_BACKEND_GROUP_COMP,BackendGoup2,xxx,false"
+      - tagKey: "@[ADWRKSHP_FLOWMAP_COMPONENT_14]"
+        tagValue: "FM_BACKEND_GROUP_COMP,BackendGoup3,xxx,false"
 
 #    templateTargets:        
 #      - templateName: "pre-migrate-app-conf"
