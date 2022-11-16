@@ -70,230 +70,294 @@ cd /home/ec2-user/environment/migration_workshop/applications/pre-migration/load
 
 /bin/bash ./start.sh
 
-
-
-# we are waiting for 12.8 minutes so that the flowmap will completely generate all the components before we attempt to ungroup and rename them
-echo "CloudWorkshop|INFO| - Deploying Load Generator .................................................................................................................................."
+# we are waiting for 16.7 minutes so that the flowmap will completely generate all the components before we attempt to ungroup and rename them
+echo "CloudWorkshop|INFO| - Deploying Load ............................................................................................................................................................"
 
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................................................................................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ................................................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..............................................................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ................................................................................................................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .............................................................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..............................................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .............................................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................................................................................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ............................................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..........................................................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ............................................................................................................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .........................................................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..........................................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .........................................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................................................................................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ........................................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ........................................................................................................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................................................................................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ......................................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ....................................................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ......................................................................................................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ...................................................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ....................................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..................................................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ...................................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .................................................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..................................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .................................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................................................................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ................................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..............................................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ................................................................................................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .............................................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..............................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .............................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................................................................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ............................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..........................................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ............................................................................................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .........................................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..........................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .........................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................................................................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ........................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ........................................................................................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................................................................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ......................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ....................................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ......................................................................................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ...................................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ....................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..................................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ...................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .................................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................................................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ................................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..............................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ................................................................................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .............................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..............................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .............................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................................................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ............................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..........................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ............................................................................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .........................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..........................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .........................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................................................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ........................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ........................................................................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................................................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ......................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ....................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ......................................................................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ...................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ....................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ...................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ................................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..............................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ................................................................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .............................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..............................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .............................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ............................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..........................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ............................................................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .........................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..........................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .........................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ........................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ........................................................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ......................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ....................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ......................................................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ...................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ....................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ...................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ................................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..............................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ................................................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .............................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..............................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .............................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ............................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..........................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ............................................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .........................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..........................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .........................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ........................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ........................................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ......................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ....................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ......................................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ...................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ....................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ...................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ................................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..............................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ................................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .............................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..............................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .............................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ............................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..........................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ............................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .........................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..........................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .........................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ........................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ........................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ......................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ....................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ......................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ...................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ....................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ...................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ................................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..............."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ................................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .............."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..............................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .............................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ............................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..........."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ............................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .........."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..........................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .........................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ........................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ........................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ......................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ....."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ......................................"
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ...."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ....................................."
 sleep 7
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..."
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ...................................."
 sleep 7
-echo "CloudWorkshop|INFO| - Finished Deploying Load Generator"
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ................................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..............................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .............................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ............................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ............................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..........................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .........................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ........................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ........................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ......................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ......................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ....................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ...................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..............."
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .............."
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ............."
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ............"
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..........."
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing .........."
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ........."
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ........"
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ......."
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ......"
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ....."
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ...."
+sleep 7
+echo "CloudWorkshop|INFO|     - Flowmap Initializing ..."
+sleep 7
+echo "CloudWorkshop|INFO| - Finished Deploying Load"
