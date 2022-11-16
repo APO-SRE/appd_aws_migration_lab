@@ -72,228 +72,228 @@ cd /home/ec2-user/environment/migration_workshop/applications/pre-migration/load
 
 
 
-# we are waiting for 11 minutes so that the flowmap will completely generate all the components before we attampt to ungroup and rename them
+# we are waiting for 12.8 minutes so that the flowmap will completely generate all the components before we attempt to ungroup and rename them
 echo "CloudWorkshop|INFO| - Deploying Load Generator .................................................................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................................................................................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..............................................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .............................................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................................................................................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..........................................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .........................................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................................................................................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................................................................................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ....................................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ...................................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..................................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .................................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................................................................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..............................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .............................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................................................................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..........................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .........................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................................................................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................................................................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ....................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ...................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................................................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..............................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .............................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................................................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..........................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .........................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................................................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................................................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ....................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ...................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..............................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .............................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..........................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .........................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ....................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ...................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..............................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .............................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..........................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .........................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ....................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ...................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..............................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .............................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..........................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .........................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ....................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ...................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..............."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .............."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..........."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .........."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......"
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ....."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ...."
-sleep 6
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..."
-sleep 6
-echo "CloudWorkshop|INFO| - Finished Deploying Load Generator"
 
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................................................................................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..............................................................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .............................................................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................................................................................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..........................................................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .........................................................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................................................................................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................................................................................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ....................................................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ...................................................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..................................................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .................................................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................................................................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..............................................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .............................................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................................................................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..........................................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .........................................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................................................................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................................................................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ....................................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ...................................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..................................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .................................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................................................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..............................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .............................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................................................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..........................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .........................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................................................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................................................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ....................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ...................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..............................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .............................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..........................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .........................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ....................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ...................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..............................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .............................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..........................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .........................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ....................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ...................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..............................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .............................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..........................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .........................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ....................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ...................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ................"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..............."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .............."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..........."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .........."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......"
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ....."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ...."
+sleep 7
+echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..."
+sleep 7
+echo "CloudWorkshop|INFO| - Finished Deploying Load Generator"
