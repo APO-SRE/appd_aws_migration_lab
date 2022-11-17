@@ -26,6 +26,13 @@ echo ""
 echo " You can safley stop this script from running if desired and rerun it at a later time as well."
 echo "##################################################################################################"
 
+echo "Start Time for 'aws ec2 modify-volume' service"
+date
+
+SECONDS=0
+# do some work
+
+
 echo ""
 
 INSTANCEID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
@@ -80,6 +87,13 @@ else
     sudo resize2fs /dev/nvme0n1p1
   fi
 fi
+
+echo ""
+echo "End Time for 'aws ec2 modify-volume' service"
+date
+
+duration=$SECONDS
+echo "$(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed for 'aws ec2 modify-volume' service."
 
 echo ""
 df -H
