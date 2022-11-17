@@ -23,6 +23,7 @@ echo " Be prepared to wait up to 20 minutes or more for the volume resizing to c
 echo " The 'aws ec2 modify-volume' service used is frequently unavailable so this script" 
 echo " is set to retry 100 times to try and connect to the service."
 echo ""
+echo " Please be patient and take a bio-io and or grab your favorite snack or drink while waiting :)"
 echo " You can safley stop this script from running if desired and rerun it at a later time as well."
 echo "####################################################################################################"
 
@@ -96,9 +97,12 @@ fi
 
 duration=$SECONDS
 
+ENDDATE=$(date)
+
 echo ""
 echo "####################################################################################################"
 echo " End Time for 'aws ec2 modify-volume' service"
+echo " $ENDDATE
 echo " $(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed for 'aws ec2 modify-volume' service."
 echo "####################################################################################################"
 
