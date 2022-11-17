@@ -51,7 +51,8 @@ taskExecutionOrder:
     taskName: "create-nodes-art-health-rule-pre"
   - taskType: "CONTROLLER_FINAL_TASKS"
     taskName: "ungroup-rename-flowmap-comps-pre"
-
+  - taskType: "CONTROLLER_FINAL_TASKS"
+    taskName: "create-db-to-collector-links-pre"
 
 #  - taskType: "SHELL_TASK"
 #    taskName: "create-kube-cluster"    
@@ -806,11 +807,11 @@ controllerFinalTasks:
       - tagKey: "@[ADWRKSHP_FLOWMAP_COMPONENT_02]"
         tagValue: "FM_TIER_COMP,WebFrontEnd,xxx,false"
       - tagKey: "@[ADWRKSHP_FLOWMAP_COMPONENT_03]"
-        tagValue: "FM_DB_COMP,LOANACCOUNTS-MySQL-LOCALHOST-5.5.5-10.2.38-MariaDB,MySQL-5.7.38-LOANACCOUNTS,true"
+        tagValue: "FM_DB_JDBC_MYSQL_COMP,LOANACCOUNTS-MySQL-LOCALHOST-5.5.5-10.2.38-MariaDB,MySQL-5.7.38-LOANACCOUNTS,true"
       - tagKey: "@[ADWRKSHP_FLOWMAP_COMPONENT_04]"
-        tagValue: "FM_DB_COMP,LOANACCOUNTS-MySQL-LOCALHOST-5.5.5-10.2.38-MariaDB,MySQL-5.7.38-LOANACCOUNTS,true"
+        tagValue: "FM_DB_JDBC_MYSQL_COMP,LOANACCOUNTS-MySQL-LOCALHOST-5.5.5-10.2.38-MariaDB,MySQL-5.7.38-LOANACCOUNTS,true"
       - tagKey: "@[ADWRKSHP_FLOWMAP_COMPONENT_05]"
-        tagValue: "FM_DB_COMP,CASHACCOUNTS-MySQL-LOCALHOST-5.5.5-10.2.38-MariaDB,MySQL-5.7.38-CASHACCOUNTS,true"
+        tagValue: "FM_DB_JDBC_MYSQL_COMP,CASHACCOUNTS-MySQL-LOCALHOST-5.5.5-10.2.38-MariaDB,MySQL-5.7.38-CASHACCOUNTS,true"
       - tagKey: "@[ADWRKSHP_FLOWMAP_COMPONENT_06]"
         tagValue: "FM_RS_HTTP_COMP,fso-payment-gw-sim.azurewebsites.net:443,mcard-payment-gw-sim.mcard.net:443,true"
       - tagKey: "@[ADWRKSHP_FLOWMAP_COMPONENT_07]"
@@ -830,16 +831,11 @@ controllerFinalTasks:
       - tagKey: "@[ADWRKSHP_FLOWMAP_COMPONENT_14]"
         tagValue: "FM_BACKEND_GROUP_COMP,BackendGoup3,xxx,false"
 
-#    templateTargets:        
-#      - templateName: "pre-migrate-app-conf"
-#        targetTags:
-#          - tagKey: "${ADWRKSHP_APM_APP_NAME}"
-#            tagValue: "@[ADWRKSHP_APM_APP_NAME_PRE]"
-#            
-#      - templateName: "workshop-user-details"
-#        targetTags:
-#          - tagKey: "${ADWRKSHP_APM_APP_NAME_PRE}"
-#            tagValue: "@[ADWRKSHP_APM_APP_NAME_PRE]"    
+  - taskType: "CONTROLLER_TASK_CREATE_DB_TO_COLLECTOR_LINKS"
+    taskName: "create-db-to-collector-links-pre"
+    inputTags:
+      - tagKey: "@[ADWRKSHP_APM_APP_NAME_PRE]"
+        tagValue: "adfin-pre-migrate-@[ADWRKSHP_LABUSER_KEY]"
             
             
 cloudTasks:
