@@ -11,27 +11,27 @@ cd /home/ec2-user/environment/migration_workshop/applications/pre-migration/java
 sleep 3
 
 # Wait 30 seconds
-echo "CloudWorkshop|INFO| - Deploying FinancialServices Tier ......................"
+echo "CloudWorkshop|INFO| - Deploying FinancialServices Tier ............................"
 sleep 3
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............"
+echo "CloudWorkshop|INFO|     - Waiting for FinancialServices to Initialize ............"
 sleep 3
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..........."
+echo "CloudWorkshop|INFO|     - Waiting for FinancialServices to Initialize ..........."
 sleep 3
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .........."
+echo "CloudWorkshop|INFO|     - Waiting for FinancialServices to Initialize .........."
 sleep 3
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........."
+echo "CloudWorkshop|INFO|     - Waiting for FinancialServices to Initialize ........."
 sleep 3
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........"
+echo "CloudWorkshop|INFO|     - Waiting for FinancialServices to Initialize ........"
 sleep 3
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......."
+echo "CloudWorkshop|INFO|     - Waiting for FinancialServices to Initialize ......."
 sleep 3
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......"
+echo "CloudWorkshop|INFO|     - Waiting for FinancialServices to Initialize ......"
 sleep 3
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ....."
+echo "CloudWorkshop|INFO|     - Waiting for FinancialServices to Initialize ....."
 sleep 3
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ...."
+echo "CloudWorkshop|INFO|     - Waiting for FinancialServices to Initialize ...."
 sleep 3
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..."
+echo "CloudWorkshop|INFO|     - Waiting for FinancialServices to Initialize ..."
 sleep 3
 echo "CloudWorkshop|INFO| - Finished Deploying FinancialServices Tier"
 
@@ -44,25 +44,25 @@ sleep 3
 # Wait 30 seconds
 echo "CloudWorkshop|INFO| - Deploying WebFrontEnd Tier ............................"
 sleep 3
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ............"
+echo "CloudWorkshop|INFO|     - Waiting for WebFrontEnd to Initialize ............"
 sleep 3
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..........."
+echo "CloudWorkshop|INFO|     - Waiting for WebFrontEnd to Initialize ..........."
 sleep 3
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize .........."
+echo "CloudWorkshop|INFO|     - Waiting for WebFrontEnd to Initialize .........."
 sleep 3
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........."
+echo "CloudWorkshop|INFO|     - Waiting for WebFrontEnd to Initialize ........."
 sleep 3
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ........"
+echo "CloudWorkshop|INFO|     - Waiting for WebFrontEnd to Initialize ........"
 sleep 3
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......."
+echo "CloudWorkshop|INFO|     - Waiting for WebFrontEnd to Initialize ......."
 sleep 3
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ......"
+echo "CloudWorkshop|INFO|     - Waiting for WebFrontEnd to Initialize ......"
 sleep 3
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ....."
+echo "CloudWorkshop|INFO|     - Waiting for WebFrontEnd to Initialize ....."
 sleep 3
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ...."
+echo "CloudWorkshop|INFO|     - Waiting for WebFrontEnd to Initialize ...."
 sleep 3
-echo "CloudWorkshop|INFO|     - Waiting for Application to Initialize ..."
+echo "CloudWorkshop|INFO|     - Waiting for WebFrontEnd to Initialize ..."
 sleep 3
 echo "CloudWorkshop|INFO| - Finished Deploying WebFrontEnd Tier"
 
@@ -71,7 +71,7 @@ cd /home/ec2-user/environment/migration_workshop/applications/pre-migration/load
 /bin/bash ./start.sh
 
 # we are waiting for 16.7 minutes so that the flowmap will completely generate all the components before we attempt to ungroup and rename them
-echo "CloudWorkshop|INFO| - Deploying Load ............................................................................................................................................................"
+echo "CloudWorkshop|INFO| - Deploying Load Generator and Initializing Flowmap ( ~17 minutes, please be patient ) ......................................................................................"
 
 sleep 7
 echo "CloudWorkshop|INFO|     - Flowmap Initializing ................................................................................................................................................."
@@ -360,4 +360,4 @@ echo "CloudWorkshop|INFO|     - Flowmap Initializing ...."
 sleep 7
 echo "CloudWorkshop|INFO|     - Flowmap Initializing ..."
 sleep 7
-echo "CloudWorkshop|INFO| - Finished Deploying Load"
+echo "CloudWorkshop|INFO| - Finished Deploying Load Generator and Initializing Flowmap"

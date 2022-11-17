@@ -26,7 +26,8 @@ echo ""
 echo " You can safley stop this script from running if desired and rerun it at a later time as well."
 echo "##################################################################################################"
 
-STARTDATE = 'date'
+STARTDATE='date'
+
 echo ""
 echo "####################################################################################################"
 echo " Start Time for 'aws ec2 modify-volume' service"
