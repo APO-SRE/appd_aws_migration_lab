@@ -24,7 +24,7 @@ echo " The 'aws ec2 modify-volume' service used is frequently unavailable so thi
 echo " is set to retry 100 times to try and connect to the service."
 echo ""
 echo " Please be patient and take a bio-io and or grab your favorite snack or drink while waiting :)"
-echo " You can safley stop this script from running if desired and rerun it at a later time as well."
+echo " You can safley stop this script during this phase if desired and rerun it at a later time as well."
 echo "####################################################################################################"
 
 STARTDATE=$(date)
