@@ -36,7 +36,6 @@ echo " "$STARTDATE
 echo "####################################################################################################"
 
 SECONDS=0
-# do some work
 
 
 echo ""
@@ -102,7 +101,8 @@ ENDDATE=$(date)
 echo ""
 echo "####################################################################################################"
 echo " End Time for 'aws ec2 modify-volume' service"
-echo " $ENDDATE
+echo " "$ENDDATE
+echo ""
 echo " $(($duration / 60)) minutes and $(($duration % 60)) seconds elapsed for 'aws ec2 modify-volume' service."
 echo "####################################################################################################"
 
