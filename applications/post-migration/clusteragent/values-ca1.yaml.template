@@ -46,3 +46,5 @@ netViz:
   enabled: true
   netVizPort: 3892
   
+install:
+  metrics-server: true
