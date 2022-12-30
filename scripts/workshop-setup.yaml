@@ -680,12 +680,12 @@ controllerTasks:
 
     inputTags:
       - tagKey: "@[ADWRKSHP_DEFAULT_RBAC_ROLE_IDS]"
-        tagValue: "286459,286305,286308,286387,288655"    
+        tagValue: "286459,286305,286308,286387,288654"
         # 286459 = Analytics Viewer
         # 286305 = DB Monitoring User
         # 286308 = Server Monitoring User
         # 286387 = viewinfraentity - Cluster Agent
-        # 288655 = TeaStore FSO SecureApp View Only
+        # 288654 = SecureApp View Only
 
     templateTargets:   
       - templateName: "pre-migrate-app-conf"
