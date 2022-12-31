@@ -80,6 +80,7 @@ else
   
   echo "CloudWorkshop|INFO| - The 'appd_controller_details_file_path' environment variable was set to" $appd_controller_details_file_path
   echo "CloudWorkshop|INFO| - Checking the validity of the 'controller-info.yaml' file"
+  
 
   # rm -f ./scripts/state/controller-config-file-valid.txt
 
