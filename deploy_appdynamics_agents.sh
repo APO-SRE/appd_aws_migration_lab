@@ -17,9 +17,24 @@
 #cd post-migration
 #cd clusteragent
 
+appd_controller_details_file_path="${appd_controller_details_file_path:-}"
+appd_controller_details_file_valid="${appd_controller_details_file_valid:-false}"
+
+
+if [ -f "./scripts/state/controller-config-file-valid.txt" ]; then
+   appd_controller_details_file_valid=$(cat ./scripts/state/controller-config-file-valid.txt)
+   appd_controller_details_file_path=$(cat ./scripts/state/controller-config-file-path.txt)
+fi
+
 
 appd_wrkshp_last_setupstep_done="100"
 
-java -DworkshopUtilsConf=./applications/post-migration/clusteragent/agent-setup.yaml -DworkshopAction=elevatedinstall -DlastSetupStepDone=${appd_wrkshp_last_setupstep_done} -DshowWorkshopBanner=false -jar ./AD-Workshop-Utils.jar
+if [ "$appd_controller_details_file_valid" == "true" ]; then
+
+  java -DworkshopUtilsConf=./applications/post-migration/clusteragent/agent-setup.yaml -DworkshopAction=elevatedinstall -DcontrollerConf=${appd_controller_details_file_path} -DlastSetupStepDone=${appd_wrkshp_last_setupstep_done} -DshowWorkshopBanner=false -jar ./AD-Workshop-Utils.jar
+else 
+  java -DworkshopUtilsConf=./applications/post-migration/clusteragent/agent-setup.yaml -DworkshopAction=elevatedinstall -DlastSetupStepDone=${appd_wrkshp_last_setupstep_done} -DshowWorkshopBanner=false -jar ./AD-Workshop-Utils.jar
+
+fi
 
 #rm -f ./applications/post-migration/clusteragent/values-ca1.yaml

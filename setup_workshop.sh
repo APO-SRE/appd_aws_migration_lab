@@ -17,6 +17,11 @@
 # [MANDATORY] workshop user identity.
 appd_workshop_user="${appd_workshop_user:-}"
 
+# [OPTIONAL] setup parameters
+appd_controller_details_file_path="${appd_controller_details_file_path:-}"
+appd_controller_details_file_valid="${appd_controller_details_file_valid:-false}"
+appd_controller_create_rbac_user="${appd_controller_create_rbac_user:-false}"
+
 echo ""
 echo ""
 echo ""
@@ -68,6 +73,27 @@ if [ ! -d ./applications/post-migration/application/.env ]; then
 fi
 
 
+##### Check if extenal controller details file path has been set and validate it
+if [ -z "$appd_controller_details_file_path" ]; then
+  echo "CloudWorkshop|INFO| - The 'appd_controller_details_file_path' environment variable was not set. Default channel.saas.appdynamics.com will be utilized"
+else 
+  
+  echo "CloudWorkshop|INFO| - The 'appd_controller_details_file_path' environment variable was set to" $appd_controller_details_file_path
+  echo "CloudWorkshop|INFO| - Checking the validity of the 'controller-info.yaml' file"
+  
+  java -DworkshopUtilsConf=./scripts/workshop-setup.yaml -DworkshopAction=testControllerFileValidity -DcontrollerConf=${appd_controller_details_file_path} -DshowWorkshopBanner=false -jar ./AD-Workshop-Utils.jar
+  
+  if [ -f "./scripts/state/controller-config-file-valid.txt" ]; then
+     appd_controller_details_file_valid=$(cat ./scripts/state/controller-config-file-valid.txt)
+     echo "CloudWorkshop|INFO| - The validation of the 'controller-info.yaml' file was successful"
+  else
+     echo "CloudWorkshop|ERROR| - The validation of the 'controller-info.yaml' file failed"
+     exit 1
+  fi
+  
+fi
+
+
 ##### Make all shell scripts executable
 find ./ -type f -iname "*.sh" -exec chmod +x {} \;
 
@@ -85,6 +111,7 @@ sed -i -e 's/\r$//' teardown_workshop.sh
 #  sudo chown -R ec2-user:ec2-user /opt/awscliv2
 #  sudo ./scripts/install_al2_aws_cli_v2.sh
 #fi
+
 
 
 ##### Resize the EBS Volume
@@ -138,7 +165,13 @@ if [ -f "./scripts/state/appd_workshop_setup.txt" ]; then
 
   appd_wrkshp_last_setupstep_done=$(cat ./scripts/state/appd_workshop_setup.txt)
 
-  java -DworkshopUtilsConf=./scripts/workshop-setup.yaml -DworkshopLabUserPrefix=${appd_workshop_user} -DworkshopAction=setup -DlastSetupStepDone=${appd_wrkshp_last_setupstep_done} -DshowWorkshopBanner=false -jar ./AD-Workshop-Utils.jar
+  if [ "$appd_controller_details_file_valid" == "true" ]; then
+     java -DworkshopUtilsConf=./scripts/workshop-setup.yaml -DworkshopLabUserPrefix=${appd_workshop_user} -DcontrollerConf=${appd_controller_details_file_path} -DcreateRbacUserNRole=${appd_controller_create_rbac_user} -DworkshopAction=setup -DlastSetupStepDone=${appd_wrkshp_last_setupstep_done} -DshowWorkshopBanner=false -jar ./AD-Workshop-Utils.jar
+  else
+     java -DworkshopUtilsConf=./scripts/workshop-setup.yaml -DworkshopLabUserPrefix=${appd_workshop_user} -DworkshopAction=setup -DlastSetupStepDone=${appd_wrkshp_last_setupstep_done} -DshowWorkshopBanner=false -jar ./AD-Workshop-Utils.jar
+  fi
+
+  
 
 else
 
@@ -186,7 +219,11 @@ appd_wrkshp_last_setupstep_done="100"
 
 echo "$appd_wrkshp_last_setupstep_done" > ./scripts/state/appd_workshop_setup.txt
 
-java -DworkshopUtilsConf=./scripts/workshop-setup.yaml -DworkshopLabUserPrefix=${appd_workshop_user} -DworkshopAction=setup -DlastSetupStepDone=${appd_wrkshp_last_setupstep_done} -DshowWorkshopBanner=false -jar ./AD-Workshop-Utils.jar
+  if [ "$appd_controller_details_file_valid" == "true" ]; then
+    java -DworkshopUtilsConf=./scripts/workshop-setup.yaml -DworkshopLabUserPrefix=${appd_workshop_user} -DcontrollerConf=${appd_controller_details_file_path} -DcreateRbacUserNRole=${appd_controller_create_rbac_user} -DworkshopAction=setup -DlastSetupStepDone=${appd_wrkshp_last_setupstep_done} -DshowWorkshopBanner=false -jar ./AD-Workshop-Utils.jar
+  else
+    java -DworkshopUtilsConf=./scripts/workshop-setup.yaml -DworkshopLabUserPrefix=${appd_workshop_user} -DworkshopAction=setup -DlastSetupStepDone=${appd_wrkshp_last_setupstep_done} -DshowWorkshopBanner=false -jar ./AD-Workshop-Utils.jar
+  fi
 
 fi
 # !!!!!!! END BIG IF BLOCK !!!!!!!
