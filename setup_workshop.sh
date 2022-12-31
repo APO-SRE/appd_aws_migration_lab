@@ -149,6 +149,8 @@ else
     exit 1
   fi
 
+  appd_workshop_user=$(echo $appd_workshop_user | tr '[:upper:]' '[:lower:]')
+ 
 
   # write the user_id to a file
   echo "$appd_workshop_user" > ./scripts/state/appd_workshop_user.txt
