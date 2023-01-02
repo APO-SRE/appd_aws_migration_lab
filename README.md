@@ -40,9 +40,49 @@ OPTIONAL: If you want to target your own controller then edit the '/home/ec2-use
 export appd_controller_details_file_path=./controller-config.yaml
 ```
 
-Then run the setup script with the command below:
+Then run the setup script with the command below which performs the tasks listed in the link below:
+https://appd-modernization.awsworkshop.io/30_workshop_setup/5_start_engines.html#what-the-setup-utility-does
+Note: The initial setup takes about 24 minutes to complete
 
 ```
 ./setup_workshop.sh
+```
+
+Once the initial setup has completed, then next step is to create the EKS cluster with the commands below:
+Note: The EKS cluster creation takes about 15 minutes to complete
+
+```
+/home/ec2-user/environment/migration_workshop
+
+create_eks_cluster.sh
+```
+
+Once the EKS cluster creation has completed, then next step is to deploy the 'post-migration' application the EKS cluster with the commands below:
+
+```
+/home/ec2-user/environment/migration_workshop
+
+deploy_eks_application.sh
+```
+
+Once the 'post-migration' application deployment has completed, then next step is to deploy the AppDynamics Agents with the commands below:
+
+```
+/home/ec2-user/environment/migration_workshop
+
+deploy_appdynamics_agents.sh
+```
+
+Now it's time to work through the observability sections of the workshop lab guide - TBD
+
+
+
+
+PLEASE! When you are finished with the workshop, kindly run the 'teardown_workshop.sh' script to delete all the resources in AWS and the AppDynamics Controller that were created during the workshop by using the commands below:
+
+```
+/home/ec2-user/environment/migration_workshop
+
+teardown_workshop.sh
 ```
 
